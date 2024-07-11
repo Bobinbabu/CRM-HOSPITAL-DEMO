@@ -1,0 +1,478 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/leads.css' %}">
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script src="https://unpkg.com/unlazy@0.11.3/dist/unlazy.with-hashing.iife.js" defer init></script>
+{% endblock %}
+
+<div class="text">leads List</div>
+    <div class="btns">
+        <a href="newlead"><button>New Leads</button></a>
+        <button class="toggle-button" onclick="toggleGraph()"><i class="fa-solid fa-chart-column"></i>  Leads Summary</button>
+    </div>
+
+
+<div class="graph">
+    <h4>Leads summary</h4>
+    <div class="wrapper">
+        
+
+      <div class="card">
+        <div class="text" style="color: rgb(74, 74, 83);">Total Customers</div>
+        <div class="divide" >0</div>
+      </div>
+      
+      <div class="card">
+        <div class="text" style="color: rgb(61, 239, 52);">Active Customer</div>
+        <div class="divide" >0</div>
+      </div>
+  
+      <div class="card">
+        <div class="text" style="color: rgb(221, 46, 81);">Inactive Customers</div>
+        <div class="divide" >0</div>
+      </div>
+
+      <div class="card">
+        <div class="text" style="color: rgb(61, 239, 52);">Active Contact</div>
+        <div class="divide" >0</div>
+      </div>
+
+      <div class="card">
+        <div class="text" style="color: rgb(221, 46, 81);">Inactive Contact</div>
+        <div class="divide" >0</div>
+      </div>
+  
+      <div class="card">
+        <div class="text" style="color: rgb(61, 58, 59);">Contact Logged Today</div>
+        <div class="divide" >0</div>
+      </div>
+
+      <div class="card">
+        <div class="text">Contact Logged Today</div>
+        <div class="divide" >0</div>
+      </div>
+      
+    </div>
+</div>
+
+
+
+
+    <div class="p-4">
+      <h2 class="text-lg font-semibold mb-2">Lead search</h2>
+      <p class="text-muted-foreground mb-4">Filter by</p>
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+        <div>
+          <select class="w-full p-2 border rounded bg-input text-foreground">
+            <option value="Assigned">Assigned</option>
+            <option value="Vivek T K">Vivek T K</option>
+            <option value="Vipin  Das">Vipin  Das</option>
+            <option value="Vipin  K K">Vipin  K K</option>
+            <option value="Sreelakshmi M">Sreelakshmi M</option>
+            <option value="Shuhaib ds">Shuhaib ds</option>
+            <option value="Shireen Saleem">Shireen Saleem</option>
+            <option value="Salman">Salman</option>
+            <option value="Rukksana">Rukksana</option>
+            <option value="Riya DS">Riya DS</option>
+            <option value="Rinshida">Rinshida</option>
+            <option value="Rimna DS">Rimna DS</option>
+            <option value="Nithara K">Nithara K</option>
+            <option value="Nishma M">Nishma M</option>
+            <option value="Neenu T C">Neenu T C</option>
+            <option value="Muhammed">Muhammed</option>
+            <option value="Lincy Philip">Lincy Philip</option>
+            <option value="Leah  Fathima">Leah  Fathima</option>
+            <option value="Lakshmi Doctosmart">Lakshmi Doctosmart</option>
+            <option value="Justin Doctosmart">Justin Doctosmart</option>
+            <option value="Jasmine Alisha">Jasmine Alisha</option>
+            <option value="Hashma .">Hashma .</option>
+            <option value="Gold">Gold</option>
+            <option value="Gayathri">Gayathri</option>
+            <option value="Fayis  E K">Fayis  E K</option>
+            <option value="Doctosmart CRM">Doctosmart CRM</option>
+            <option value="Deepika Heeralal">Deepika Heeralal</option>
+            <option value="Bijeesh Raghavan">Bijeesh Raghavan</option>
+            <option value="Asif  Ali">Asif  Ali</option>
+            <option value="Ashwathy">Ashwathy</option>
+            <option value="Arshed">Arshed</option>
+            <option value="Archana Doctosmart">Archana Doctosmart</option>
+            <option value="Anusmaya p">Anusmaya p</option>
+            <option value="Anusha K">Anusha K</option>
+            <option value="AMRUTHA DS">AMRUTHA DS</option>
+            <option value="Alia docto">Alia docto</option>
+            <option value="Afra N K">Afra N K</option>
+            <option value="Adih  Rahman">Adih  Rahman</option>
+            <option value="Adarsh M M">Adarsh M M</option>
+            <option value="Abhi">Abhi</option>
+          </select>
+          <input type="date" class="w-full p-2 border rounded bg-input text-foreground" placeholder="From date" />
+        </div>
+        <div>
+          <select class="w-full p-2 border rounded bg-input text-foreground">
+            <option value="Status">Status</option>
+            <option value="Pending">Pending</option>
+            <option value="Follow Up">Follow Up</option>
+            <option value="Lead">Lead</option>
+            <option value="Closed">Closed</option>
+            <option value="Customer">Customer</option>
+          </select>
+          <input type="date" class="w-full p-2 border rounded bg-input text-foreground" placeholder="To date" />
+        </div>
+        <div>
+          <select class="w-full p-2 border rounded bg-input text-foreground">
+            <option value="Specializations">Specializations</option>
+            <option value="24 Hours Veterinary Doctors">24 Hours Veterinary Doctors</option>
+            <option value="24-Hours-Veterinary-Doctors">24-Hours-Veterinary-Doctors</option>
+            <option value="Acupressure">Acupressure</option>
+            <option value="Acupressure Doctors">Acupressure Doctors</option>
+            <option value="Acupressure Therapists">Acupressure Therapists</option>
+            <option value="Acupuncture">Acupuncture</option>
+            <option value="Acupuncture Doctors">Acupuncture Doctors</option>
+            <option value="Acupuncture Therapists">Acupuncture Therapists</option>
+            <option value="Alcohol Deaddiction Doctors">Alcohol Deaddiction Doctors</option>
+            <option value="Allopathic Doctors">Allopathic Doctors</option>
+            <option value="ANAESTHESIA">ANAESTHESIA</option>
+            <option value="Andrologist Doctors">Andrologist Doctors</option>
+            <option value="Appendix Doctors">Appendix Doctors</option>
+            <option value="Arthritis Doctors">Arthritis Doctors</option>
+            <option value="Asthma">Asthma</option>
+            <option value="Asthma Doctors">Asthma Doctors</option>
+            <option value="Audiologist Doctors">Audiologist Doctors</option>
+            <option value="AYURVEDA">AYURVEDA</option>
+            <option value="Ayurvedic Doctors">Ayurvedic Doctors</option>
+            <option value="Ayurvedic Doctors For Hair Fall Treatment">Ayurvedic Doctors For Hair Fall Treatment</option>
+            <option value="Ayurvedic Doctors For Skin Treatment">Ayurvedic Doctors For Skin Treatment</option>
+            <option value="Ayurvedic Sexologist Doctors">Ayurvedic Sexologist Doctors</option>
+            <option value="Bariatric Surgeon Doctors">Bariatric Surgeon Doctors</option>
+            <option value="Breast Cancer Doctors">Breast Cancer Doctors</option>
+            <option value="Breast Enlargement Doctors">Breast Enlargement Doctors</option>
+            <option value="Breast Implant Doctors">Breast Implant Doctors</option>
+            <option value="Breast Specialist Doctors">Breast Specialist Doctors</option>
+            <option value="Burn Surgery Doctors">Burn Surgery Doctors</option>
+            <option value="Cardiac Surgeon Doctors">Cardiac Surgeon Doctors</option>
+            <option value="Cardiologist">Cardiologist</option>
+            <option value="Cardiologists">Cardiologists</option>
+            <option value="CARDIOLOGY&amp;CARDIO THORACIC SURGERY">CARDIOLOGY &amp; CARDIO THORACIC SURGERY</option>
+            <option value="Cataract Operation Doctors">Cataract Operation Doctors</option>
+            <option value="Chiropractic">Chiropractic</option>
+            <option value="Chiropractic Doctors">Chiropractic Doctors</option>
+            <option value="Clinical Nutritionist">Clinical Nutritionist</option>
+            <option value="Clinical Psychologist Doctors">Clinical Psychologist Doctors</option>
+            <option value="Colonoscopy Doctors">Colonoscopy Doctors</option>
+            <option value="COMMUNITY MEDICINE">COMMUNITY MEDICINE</option>
+            <option value="Cosmetic Surgeon Doctors">Cosmetic Surgeon Doctors</option>
+            <option value="Cosmetic-Surgeon">Cosmetic-Surgeon</option>
+            <option value="Cosmetologist Doctors">Cosmetologist Doctors</option>
+            <option value="DENTAL">DENTAL</option>
+            <option value="Dental Surgeons">Dental Surgeons</option>
+            <option value="Dental-Surgeons">Dental-Surgeons</option>
+            <option value="Dentists">Dentists</option>
+            <option value="Dermatologists">Dermatologists</option>
+            <option value="DERMATOLOGY">DERMATOLOGY</option>
+            <option value="Dermatosurgeons">Dermatosurgeons</option>
+            <option value="Diabetologist Doctors">Diabetologist Doctors</option>
+            <option value="DIABETOLOGY">DIABETOLOGY</option>
+            <option value="Dietitians">Dietitians</option>
+            <option value="Doctors For Allergy">Doctors For Allergy</option>
+            <option value="Doctors For Eye Laser Treatment">Doctors For Eye Laser Treatment</option>
+            <option value="Doctors For Height">Doctors For Height</option>
+            <option value="Doctors For HIV Aids">Doctors For HIV Aids</option>
+            <option value="Doctors For Jaundice">Doctors For Jaundice</option>
+            <option value="Doctors For Laparoscopy">Doctors For Laparoscopy</option>
+            <option value="Doctors For Mentally Challenged">Doctors For Mentally Challenged</option>
+            <option value="Doctors For Varicose Veins Treatment">Doctors For Varicose Veins Treatment</option>
+            <option value="Drug De Addiction Centres">Drug De Addiction Centres</option>
+            <option value="Endocrinologists">Endocrinologists</option>
+            <option value="Endoscopist Doctors">Endoscopist Doctors</option>
+            <option value="ENT">ENT</option>
+            <option value="ENT Doctors">ENT Doctors</option>
+            <option value="ENT Surgeon Doctors">ENT Surgeon Doctors</option>
+            <option value="ENT-Surgeon">ENT-Surgeon</option>
+            <option value="ESIC">ESIC</option>
+            <option value="ESIC Doctors">ESIC Doctors</option>
+            <option value="Eye Surgeon Doctors">Eye Surgeon Doctors</option>
+            <option value="Eye-Specialists">Eye-Specialists</option>
+            <option value="Eye-Surgeon">Eye-Surgeon</option>
+            <option value="Fistula Surgeon Doctors">Fistula Surgeon Doctors</option>
+            <option value="FORENSIC MEDICINE">FORENSIC MEDICINE</option>
+            <option value="Gall Bladder Stone Removal Doctors">Gall Bladder Stone Removal Doctors</option>
+            <option value="GASTRO ENTOLOGY">GASTRO ENTOLOGY</option>
+            <option value="Gastroenterologist">Gastroenterologist</option>
+            <option value="Gastroenterologists">Gastroenterologists</option>
+            <option value="Gastrointestinal Surgeon Doctors">Gastrointestinal Surgeon Doctors</option>
+            <option value="GENERAL MEDICINE">GENERAL MEDICINE</option>
+            <option value="General Physician Doctors">General Physician Doctors</option>
+            <option value="GENERAL PRACTITIONER">GENERAL PRACTITIONER</option>
+            <option value="General Surgeon Doctors">General Surgeon Doctors</option>
+            <option value="GENERAL SURGERY">GENERAL SURGERY</option>
+            <option value="General-Physician">General-Physician</option>
+            <option value="General-Surgeon">General-Surgeon</option>
+            <option value="Gynaecologic Oncologist Doctors">Gynaecologic Oncologist Doctors</option>
+            <option value="Gynaecologist &amp; Obstetrician Doctors">Gynaecologist &amp; Obstetrician Doctors</option>
+            <option value="Gynaecologist-&amp;-Obstetrician">Gynaecologist-&amp;-Obstetrician</option>
+            <option value="GYNECOLOGY">GYNECOLOGY</option>
+            <option value="Hair Loss Doctors">Hair Loss Doctors</option>
+            <option value="Hair Transplant Doctors">Hair Transplant Doctors</option>
+            <option value="Hair-Loss">Hair-Loss</option>
+            <option value="Hair-Transplant">Hair-Transplant</option>
+            <option value="Hearing Care Clinics">Hearing Care Clinics</option>
+            <option value="Hematologist">Hematologist</option>
+            <option value="Hematologist Doctors">Hematologist Doctors</option>
+            <option value="Hepatitis Doctors">Hepatitis Doctors</option>
+            <option value="Hepatologist">Hepatologist</option>
+            <option value="Hepatologist Doctors">Hepatologist Doctors</option>
+            <option value="Hernia Doctors">Hernia Doctors</option>
+            <option value="Hernia Surgeon Doctors">Hernia Surgeon Doctors</option>
+            <option value="Home-Visit">Home-Visit</option>
+            <option value="HOMEO">HOMEO</option>
+            <option value="Homeopathic Doctors">Homeopathic Doctors</option>
+            <option value="Hypnotherapists">Hypnotherapists</option>
+            <option value="Infertility Doctors">Infertility Doctors</option>
+            <option value="Just Dail">Just Dail</option>
+            <option value="Kidney Stone Removal Laser Treatment Doctors">Kidney Stone Removal Laser Treatment Doctors</option>
+            <option value="Kidney Transplant Doctors">Kidney Transplant Doctors</option>
+            <option value="Kidney-Specialist">Kidney-Specialist</option>
+            <option value="Knee Replacement Surgeon Doctors">Knee Replacement Surgeon Doctors</option>
+            <option value="Laparoscopic Surgery Doctors">Laparoscopic Surgery Doctors</option>
+            <option value="Lasik Eye Surgery Doctors">Lasik Eye Surgery Doctors</option>
+            <option value="LIC Panel Doctors">LIC Panel Doctors</option>
+            <option value="Liposuction Doctors">Liposuction Doctors</option>
+            <option value="Liver-Specialist">Liver-Specialist</option>
+            <option value="MICROBIOLOGY">MICROBIOLOGY</option>
+            <option value="Migraine Therapy Doctors">Migraine Therapy Doctors</option>
+            <option value="Naturopath Doctors">Naturopath Doctors</option>
+            <option value="Neck Surgery Doctors">Neck Surgery Doctors</option>
+            <option value="Neonatologist Doctors">Neonatologist Doctors</option>
+            <option value="Nephrologist">Nephrologist</option>
+            <option value="Nephrologists">Nephrologists</option>
+            <option value="Neuro Physician Doctors">Neuro Physician Doctors</option>
+            <option value="Neuro-Physician">Neuro-Physician</option>
+            <option value="Neurologist">Neurologist</option>
+            <option value="Neurologists">Neurologists</option>
+            <option value="NEUROLOGY&amp;NEURO SURGERY">NEUROLOGY &amp; NEURO SURGERY</option>
+            <option value="Neurosurgeons">Neurosurgeons</option>
+            <option value="Occupational Therapy Doctors">Occupational Therapy Doctors</option>
+            <option value="On Call Doctor">On Call Doctor</option>
+            <option value="On Call Gynaecologist Doctors">On Call Gynaecologist Doctors</option>
+            <option value="On Call Paediatrician Doctors">On Call Paediatrician Doctors</option>
+            <option value="On Call Veterinary Doctors">On Call Veterinary Doctors</option>
+            <option value="On-Call-Doctors">On-Call-Doctors</option>
+            <option value="On-Call-Veterinary-Doctors">On-Call-Veterinary-Doctors</option>
+            <option value="Oncologist">Oncologist</option>
+            <option value="Oncologist Surgeon Doctors">Oncologist Surgeon Doctors</option>
+            <option value="Oncologists">Oncologists</option>
+            <option value="Online Doctors">Online Doctors</option>
+            <option value="Ophthalmologists">Ophthalmologists</option>
+            <option value="Oral Cancer Doctors">Oral Cancer Doctors</option>
+            <option value="Orthodontist">Orthodontist</option>
+            <option value="Orthodontist Doctors">Orthodontist Doctors</option>
+            <option value="Orthopaedic">Orthopaedic</option>
+            <option value="Orthopaedic Doctors">Orthopaedic Doctors</option>
+            <option value="Orthopaedic-Surgeons">Orthopaedic-Surgeons</option>
+            <option value="PAEDIATRIC">PAEDIATRIC</option>
+            <option value="Paediatric Cardiologist Doctors">Paediatric Cardiologist Doctors</option>
+            <option value="Paediatric Dermatologist">Paediatric Dermatologist</option>
+            <option value="Paediatric ENT Doctors">Paediatric ENT Doctors</option>
+            <option value="Paediatric Gastroenterologist Doctors">Paediatric Gastroenterologist Doctors</option>
+            <option value="Paediatric Neurologist Doctors">Paediatric Neurologist Doctors</option>
+            <option value="Paediatric Ophthalmologist Doctors">Paediatric Ophthalmologist Doctors</option>
+            <option value="Paediatric Orthopaedic Doctors">Paediatric Orthopaedic Doctors</option>
+            <option value="Paediatric Physiotherapy Doctors">Paediatric Physiotherapy Doctors</option>
+            <option value="Paediatric Psychiatrist Doctors">Paediatric Psychiatrist Doctors</option>
+            <option value="Paediatric Surgeon Doctors">Paediatric Surgeon Doctors</option>
+            <option value="Paediatricians">Paediatricians</option>
+            <option value="PAEDIATRICS&amp;PAEDIATRIC SURGERY">PAEDIATRICS &amp; PAEDIATRIC SURGERY</option>
+            <option value="Paedodontist">Paedodontist</option>
+            <option value="Paedodontist Doctors">Paedodontist Doctors</option>
+            <option value="Pain Relief Doctors">Pain Relief Doctors</option>
+            <option value="Paralysis">Paralysis</option>
+            <option value="Paralysis Doctors">Paralysis Doctors</option>
+            <option value="Pathologist Doctors">Pathologist Doctors</option>
+            <option value="Peripheral Nerve Surgeon Doctors">Peripheral Nerve Surgeon Doctors</option>
+            <option value="PHYSICAL MEDICINE&amp; REHABILITATION">PHYSICAL MEDICINE &amp; REHABILITATION</option>
+            <option value="PHYSIOLOGY">PHYSIOLOGY</option>
+            <option value="Physiotherapist For Home Visits">Physiotherapist For Home Visits</option>
+            <option value="Physiotherapist-For-Home-Visits">Physiotherapist-For-Home-Visits</option>
+            <option value="Physiotherapists">Physiotherapists</option>
+            <option value="Piles Ayurvedic Doctors">Piles Ayurvedic Doctors</option>
+            <option value="Piles Doctors">Piles Doctors</option>
+            <option value="Piles-Doctors">Piles-Doctors</option>
+            <option value="Placement Services (Candidate)">Placement Services (Candidate)</option>
+            <option value="PLASTIC SURGERY">PLASTIC SURGERY</option>
+            <option value="Podiatrist Doctors">Podiatrist Doctors</option>
+            <option value="Practo">Practo</option>
+            <option value="PSYCHATRY">PSYCHATRY</option>
+            <option value="Psychiatrists">Psychiatrists</option>
+            <option value="Psychiatrists For Home Visit">Psychiatrists For Home Visit</option>
+            <option value="Psychologist Doctors">Psychologist Doctors</option>
+            <option value="Psychologist Doctors For Children">Psychologist Doctors For Children</option>
+            <option value="Psychotherapy Doctors">Psychotherapy Doctors</option>
+            <option value="PULMANOLOGY">PULMANOLOGY</option>
+            <option value="Pulmonologists Doctors">Pulmonologists Doctors</option>
+            <option value="RADIO THERAPY RADIOLOGY">RADIO THERAPY RADIOLOGY</option>
+            <option value="Radiologist">Radiologist</option>
+            <option value="Radiologist Doctors">Radiologist Doctors</option>
+            <option value="Respiratory Doctors">Respiratory Doctors</option>
+            <option value="Rheumatologist">Rheumatologist</option>
+            <option value="Rheumatologist Doctors">Rheumatologist Doctors</option>
+            <option value="Sexologist">Sexologist</option>
+            <option value="Sexologist Doctors">Sexologist Doctors</option>
+            <option value="Sexologist Doctors For Female">Sexologist Doctors For Female</option>
+            <option value="Sexologist Doctors For Male">Sexologist Doctors For Male</option>
+            <option value="Sexologist-For-Female">Sexologist-For-Female</option>
+            <option value="Sexologist-For-Male">Sexologist-For-Male</option>
+            <option value="Siddha">Siddha</option>
+            <option value="Skin Treatment Homeopathic Doctors">Skin Treatment Homeopathic Doctors</option>
+            <option value="Somnologists">Somnologists</option>
+            <option value="Sonologist Doctors">Sonologist Doctors</option>
+            <option value="Specialists">Specialists</option>
+            <option value="Speech Therapists">Speech Therapists</option>
+            <option value="Speech-Therapists">Speech-Therapists</option>
+            <option value="Spinal-Surgery">Spinal-Surgery</option>
+            <option value="Spine Surgeons">Spine Surgeons</option>
+            <option value="Stem Cell Therapy Doctors">Stem Cell Therapy Doctors</option>
+            <option value="Surgeon">Surgeon</option>
+            <option value="Test Spec">Test Spec</option>
+            <option value="tester">tester</option>
+            <option value="Therapist Doctors">Therapist Doctors</option>
+            <option value="Thyroid">Thyroid</option>
+            <option value="Thyroid Doctors">Thyroid Doctors</option>
+            <option value="Trichologist">Trichologist</option>
+            <option value="Trichologist Doctors">Trichologist Doctors</option>
+            <option value="Tuberculosis Doctors">Tuberculosis Doctors</option>
+            <option value="Ultrasonologist Doctors">Ultrasonologist Doctors</option>
+            <option value="Unani Doctors">Unani Doctors</option>
+            <option value="Urologist">Urologist</option>
+            <option value="Urologist Doctors">Urologist Doctors</option>
+            <option value="VASCULAR SURGERY">VASCULAR SURGERY</option>
+            <option value="Vascular Surgery Doctors">Vascular Surgery Doctors</option>
+            <option value="VETERINARY">VETERINARY</option>
+            <option value="Veterinary Doctors">Veterinary Doctors</option>
+            <option value="Weight Loss Doctors">Weight Loss Doctors</option>
+            <option value="">x</option>
+          </select>
+          <input type="text" class="w-full p-2 border rounded bg-input text-foreground" placeholder="Phone No" />
+        </div>
+        <div>
+          <select class="w-full p-2 border rounded bg-input text-foreground">
+            <option value="Additional Filters">Additional Filters</option>
+            <option value="Demo fixed">Demo fixed</option>
+            <option value="Demo finished">Demo finished</option>
+            <option value="Demo fixed by call later">Demo fixed by call later</option>
+            <option value="Demo finished by call later">Demo finished by call later</option>
+            <option value="Call later">Call later</option>
+            <option value="Hot">Hot</option>
+            <option value="Average">Average</option>
+            <option value="Low">Low</option>
+            <option value="Lost">Lost</option>
+            <option value="Junk">Junk</option>
+            <option value="Public">Public</option>
+            <option value="Contacted Today">Contacted Today</option>
+            <option value="Created Today">Created Today</option>
+            <option value="Not Assigned">Not Assigned</option>
+          </select>
+          <input type="text" class="w-full p-2 border rounded bg-input text-foreground" placeholder="City" />
+          <div class="flex" style="margin-left: 100%; margin-top: -48px;;">
+            <button class="ml-3 p-3 bg-primary text-primary-foreground rounded"><i class="fa-solid fa-arrows-rotate"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text" style="color: rgb(74, 74, 83); margin-left: 30%;">
+      Total Leads : 0
+    </div>
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th><input type="checkbox" id="selectAll" onclick="toggleCheckboxes(this)"></th>
+          <th>#</th>
+          <th>Date</th>
+          <th>Name</th>
+          <th>Company</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Assinged</th>
+          <th>Status</th>
+          <th>Last Contact</th>
+          <th>Created</th>
+          <th>Priority</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for l in lead %}
+        <tr>
+          <td data-label="l"><input type="checkbox" class="individualCheckbox"></td>
+          <td data-label="#">{{forloop.counter}}</td>
+          <td data-label="Date">10-10-2024</td>
+          <td data-label="Name">{{l.Name2}}</td>
+          <td data-label="Company">{{l.Company2}}</td>
+          <td data-label="Email">{{l.Email2}}</td>
+          <td data-label="Phone">{{l.Phone2}}</td>
+          <td data-label="Assinged">{{l.Assigned2}}</td>
+          <td data-label="Status">{{l.Status2}}</td>
+          <td data-label="Last Contact">2 Hours</td>
+          <td data-label="Created">2 Hours</td>
+          <td data-label="Priority">{{l.Priority2}}</td>
+          <td data-label="Edit"><a href="{% url 'editleads' l.id %}"><i class="fa-regular fa-pen-to-square" style="color: blue;"></i></a></td>
+          <td data-label="Delete"><a href="{% url 'deleleads' id=l.id %}"><i class="fa-solid fa-trash-can" style="color: red;"></i></a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    let sidebar = document.querySelector(".sidebar");
+    let closeBtn = document.querySelector("#btn");
+
+    closeBtn.addEventListener("click", ()=>{
+      sidebar.classList.toggle("open");
+      menuBtnChange();//calling the function(optional)
+    });
+
+    // following are the code to change sidebar button(optional)
+    function menuBtnChange() {
+      if(sidebar.classList.contains("open")){
+        closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+      } else {
+        closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+      }
+    }
+
+    $(document).ready(function() {
+      $(".line .bar2").each(function() {
+        let value = parseInt($(this).closest(".card").find(".text").text().trim().match(/\d+/)[0]);
+        $(this).css("width", value + "%");
+        $(this).closest(".card").find(".box span").text(value + "%");
+      });
+    });
+
+    function toggleGraph() {
+        var graph = document.querySelector('.graph');
+        var button = document.querySelector('.toggle-button');
+        if (graph.style.display === 'none' || graph.style.display === '') {
+            graph.style.display = 'block';
+            button.textContent = 'Hide Leads Summary';
+        } else {
+            graph.style.display = 'none';
+            button.textContent = 'Leads Summary';
+        }
+    }
+
+    function toggleCheckboxes(source) {
+      const checkboxes = document.querySelectorAll('.individualCheckbox');
+      checkboxes.forEach(checkbox => {
+        checkbox.checked = source.checked;
+      });
+    }
+  </script>
+  {% endblock %}

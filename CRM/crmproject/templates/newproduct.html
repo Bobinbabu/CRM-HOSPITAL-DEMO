@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/new_pro.css' %}">
+{% endblock %}
+<div class="text" style="margin-left: 40px;">New Product</div>
+    
+
+    <div class="form">
+        <form class="form" action="product1" method="POST">
+            {% csrf_token %}
+            <label>Product Name :</label>
+            <input type="text" style="width: 20%;" placeholder="Product Name" name="Product_name" required>
+            <label >Price :</label>
+            <input  type="text" style="width: 20%;" placeholder="Price" name="Price" required>
+            <label >Type :</label>
+            <select class="" name="Type" style="width: 20%;">
+                <option value="--Select a Type--">--Select a Type--</option>
+                <option value="Online">Online</option>
+                <option value="Offline">Offline</option>
+                <option value="Both">Both</option>
+                <option value="Wedsite & Degital Market">Wedsite & Degital Market</option>
+            </select>
+            <button type="submit" class="btns" >Submit</button>
+            <button type="reset" class="btns" >Reset</button>
+        </form>  
+    </div>
+
+    <table class="table" style="margin-left: 40px; margin-top: 100px;">
+        <thead>
+            <tr>
+             <th>IS NO</th>
+             <th>Product Name</th>
+             <th>Price</th>
+             <th>Software Type</th>
+             <th>Edit</th>
+            <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in prod %}
+            <tr>
+                <td data-label="IS NO">{{forloop.counter}}</td>
+                <td data-label="Product Name">{{i.Productname}}</td>
+                <td data-label="Price">{{i.Price}}</td>
+                <td data-label="Software Type">{{i.Type}}</td>
+                <td data-label="Edit"><a href=""><i class="fa-solid fa-pencil" style="color: blue;"></i></a></td>
+                <td data-label="Delete"><a href="{% url 'deleproduct' id=i.id %}"><i class="fa-solid fa-trash-can" style="color: red;"></i></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+{% endblock %}

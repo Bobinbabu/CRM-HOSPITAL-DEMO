@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/ticket.css' %}">
+{% endblock %}
+<div class="text">Tickets</div>
+<div class="btn">
+   <a href="twc"><button class="btns">New Tickets</button></a>
+    <button class="btns" id="toggleGraph" onclick="toggleGraph()">Graph</button>
+</div>
+
+<div class="form">
+    <h3 class="filtter">FILTTER BY :</h3>
+    <form class="form" action="" method="">
+        <label>From Date :</label>
+        <input type="date" name="from_date"required>
+        <label >To Date :</label>
+        <input  type="date" name="to_date" required><label >Email :</label>
+        <input  type="email" placeholder="Email" name="email" required>
+        <button type="submit" class="btns" >Filtter</button>
+    </form>
+</div>
+
+<div class="text2">Ticket Summary</div>
+<hr>
+<div class="wrapper">
+
+    <div class="card">
+      <div class="text" style="color: blue;"></i>OPEN</div>
+      <div class="divide" >0</div>
+    </div>
+    
+    <div class="card">
+      <div class="text" style="color: rgb(19, 217, 26);">IN PROGRESS</div>
+      <div class="divide" >0</div>
+    </div>
+
+    <div class="card">
+      <div class="text" style="color: rgb(255, 0, 0);">ANSWER</div>
+      <div class="divide" >0</div>
+    </div>
+
+    <div class="card">
+      <div class="text" style="color: rgb(147, 138, 133);">ON HOLD</div>
+      <div class="divide" >0</div>
+    </div>
+
+    <div class="card">
+        <div class="text" style="color: rgb(234, 255, 0);">CLOSED</div>
+        <div class="divide" >0</div>
+      </div>
+
+</div>
+
+<div style="display: none;" class="graph" id="graphContainer">
+  <canvas id="myChart"></canvas>
+</div>
+
+
+<div class="form">
+    <form class="form" action="" method="">
+        <label>From Date :</label>
+        <input type="date" name="from_date"required>
+        <a href="#"><button class="btns">Export</button></a>
+        <a href="#"><button class="btns">Bluk Action</button></a>
+    </form>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+         <th>ID</th>
+         <th>Name</th>
+         <th>Subject</th>
+         <th>Tags</th>
+         <th>Contact</th>
+        <th>Department</th>
+         <th>Service</th>
+         <th>priority</th>
+         <th>edit</th>
+         <th>del</th>
+        </tr>
+    </thead>
+    <tbody>
+          <tr>
+                <td data-label="ID">1</td>
+                <td data-label="Name">shamil k</td>
+                <td data-label="Subject">PFS</td>
+                <td data-label="Tags">online</td>
+                <td data-label="Contact">9876785423</td>
+             <td data-label="Department">PD</td>
+                <td data-label="Service">bob</td>
+                <td data-label="prioruty">higth</td>
+                <td data-label="edit">edit</td>
+                <td data-label="del">delete</td>
+          </tr>
+          
+          <tr>
+           <td data-label="ID">{{forloop.counter}}</td>
+              <td data-label="Name">{{t.name}}</td>
+              <td data-label="Subject">{{t.subject}}</td>
+              <td data-label="Tags">{{t.tags}}</td>
+              <td data-label="Contact">{{t.contact}}</td>
+           <td data-label="Department">{{t.department}}</td>
+              <td data-label="Service">{{t.service}}</td>
+              <td data-label="prioruty">{{t.priority}}</td>
+              <td data-label="edit">edit</td>
+              <td data-label="del">delete</td>
+       </tr>
+       
+    </tbody>
+  </table>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+let sidebar = document.querySelector(".sidebar");
+let closeBtn = document.querySelector("#btn");
+
+closeBtn.addEventListener("click", ()=>{
+  sidebar.classList.toggle("open");
+  menuBtnChange();//calling the function(optional)
+});
+
+// following are the code to change sidebar button(optional)
+const xValues = [50,60,70,80,90,100,110,120,130,140,150];
+const yValues = [7,8,8,9,9,9,10,11,14,14,15];
+
+new Chart("myChart", {
+type: "line",
+data: {
+labels: xValues,
+datasets: [{
+  fill: false,
+  lineTension: 0,
+  backgroundColor: "rgba(0,0,255,1.0)",
+  borderColor: "rgba(0,0,255,0.1)",
+  data: yValues
+}]
+},
+options: {
+legend: {display: false},
+scales: {
+  yAxes: [{ticks: {min: 6, max:16}}],
+}
+}
+});
+
+
+function toggleGraph() {
+  var graphContainer = document.getElementById('graphContainer');
+  var toggleButton = document.getElementById('.toggle-btn');
+  if (graphContainer.style.display === 'none' || graphContainer.style.display === '') {
+    graphContainer.style.display = 'block';
+    toggleButton.textContent = 'Hide Graph';
+  } else {
+    graphContainer.style.display = 'none';
+    toggleButton.textContent = 'Show Graph';
+  }
+} 
+
+
+</script>
+{% endblock %}

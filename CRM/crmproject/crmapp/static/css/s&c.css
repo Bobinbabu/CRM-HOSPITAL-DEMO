@@ -1,0 +1,223 @@
+.card {
+    max-width: 350px;
+    width: 100%;
+    margin-left: 20px ;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body {
+    padding: 0;
+}
+
+.card-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.text-primary {
+    color: #007bff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.text-primary:hover {
+    text-decoration: underline;
+}
+
+.fa-pen-to-square {
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+/* Table styles */
+.table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 12px 15px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.table th {
+    background-color: #344675;
+    color: #ffffff;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+@media(max-width: 876px) {
+    .table thead {
+        display: none;
+    }
+
+    .table, .table tbody, .table tr, .table td {
+        display: block;
+        width: 100%;
+    }
+    .table tr {
+        margin-bottom: 15px;
+    }
+    .table td {
+        padding-left: 50%;
+        position: relative;
+    }
+    .table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-size: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+}
+
+/* Sidebar styles */
+.sidebar-container {
+    margin: 20px;
+}
+
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-content > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.sidebar-content i {
+    padding: 10px;
+    color: #666;
+}
+
+.sidebar-content a {
+    margin-left: 10px;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.sidebar-content a:hover {
+    color: #619e3a;
+}
+
+/* Form styles */
+.form-container {
+    display: none;
+    position: fixed;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.form-container.active {
+    display: block;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-container input,
+.form-container select,
+.form-container button,
+.form-container textarea {
+    width: calc(100% - 24px);
+    padding: 10px;
+    margin: 6px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-container button {
+    background-color: #2b14d8;
+    color: #fff;
+    border: none;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.form-container .closeFormButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #ccc;
+    font-size: 20px;
+}
+
+.form-container .closeFormButton:hover {
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        max-width: 100%;
+    }
+
+    .card-body {
+        max-width: 100%;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    .form-container {
+        width: 40%;
+        padding: 15px;
+    }
+
+    .form-container input,
+    .form-container select,
+    .form-container button,
+    .form-container textarea {
+        width: calc(100% - 20px);
+    }
+}

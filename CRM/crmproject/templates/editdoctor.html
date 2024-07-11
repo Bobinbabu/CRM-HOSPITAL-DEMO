@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/new_doc.css' %}">
+{% endblock %}
+
+<h2>New Doctor</h2>
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <select id="title" name="Title" value="{{docedit.Title}}">
+                <option value="Dr.">Dr.</option>
+                <option value="Mr.">Mr.</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="Name" value="{{docedit.Name}}" placeholder="Enter name">
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="Phone" value="{{docedit.Phone}}" placeholder="Enter phone number">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group">
+            <label for="clinic-name">Clinic Name</label>
+            <input type="text" id="clinic-name" name="Clinic_name" value="{{docedit.Clinicname}}" placeholder="Enter clinic name">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="Email" value="{{docedit.Email}}" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+            <label for="specialization">specialization</label>
+            <select id="specialization" name="Specialization" value="{{docedit.Specialization}}">
+                <option value="specialization">specialization</option>
+                <option value="GENERAL PHYSICIAN">GENERAL PHYSICIAN</option>
+                <option value="GYNECOLOGIST">GYNECOLOGIST</option>
+                <option value="PEDIATRICIAN">PEDIATRICIAN</option>
+                <option value="OPHTHALMOLOGIST">OPHTHALMOLOGIST</option>
+                <option value="DERMATOLOGIST">DERMATOLOGIST</option>
+                <option value="ENT DOCTOR">ENT DOCTOR</option>
+                <option value="ORTHOPEDIC">ORTHOPEDIC</option>
+                <option value="CARDIOLOGIST">CARDIOLOGIST</option>
+                <option value="NEUROLOGIST">NEUROLOGIST</option>
+                <option value="DENTAL">DENTAL</option>
+                <option value="UROLOGIST">UROLOGIST</option>
+                <option value="PSYCHIATRIST">PSYCHIATRIST</option>
+                <option value="PATHOLOGIST">PATHOLOGIST</option>
+                <option value="RADIOLOGIST">RADIOLOGIST</option>
+                <option value="ANESTHESIOLOGIST">ANESTHESIOLOGIST</option>
+                <option value="GENERAL SURGEON">GENERAL SURGEON</option>
+                <option value="ONCOLOGIST">ONCOLOGIST</option>
+                <option value="NEPHROLOGIST">NEPHROLOGIST</option>
+                <option value="ENDOCRINOLOGIST">ENDOCRINOLOGIST</option>
+                <option value="GASTROLOGIST">GASTROLOGIST</option>
+                <option value="VETERINARY DOCTOR">VETERINARY DOCTOR</option>
+                <option value="AYURVEDA">AYURVEDA</option>
+                <option value="HOMEOPATHY">HOMEOPATHY</option>
+                <option value="ORTHODONTIST">ORTHODONTIST</option>
+                <option value="ENDODONTIST">ENDODONTIST</option>
+                <option value="PHYSIOTHERAPIST">PHYSIOTHERAPIST</option>
+                <option value="NEUROLOGY">NEUROLOGY</option>
+                <option value="SALON & SPA 1">SALON & SPA 1</option>
+                <option value="FITNESS 1">FITNESS 1</option>
+                <option value="SALON & SPA 2">SALON & SPA 2</option>
+                <option value="FITNESS 2">FITNESS 2</option>
+                <option value="FITNESS ACADEMY">FITNESS ACADEMY</option>
+                <option value="PRODUCTS">PRODUCTS</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group">
+            <label for="state">State</label>
+            <select id="state" name="State" value="{{docedit.State}}">
+                <option value="Select State">Select state</option>
+                <option value="ANDAMAN AND NICOBAR ISLANDS">ANDAMAN AND NICOBAR ISLANDS</option>
+                <option value="ANDHRA PRADESH">ANDHRA PRADESH</option>
+                <option value="ARUNACHAL PRADESH">ARUNACHAL PRADESH</option>
+                <option value="ASSAM">ASSAM</option>
+                <option value="BIHAR">BIHAR</option>
+                <option value="CHANDIGARH">CHANDIGARH</option>
+                <option value="CHHATTISGARH">CHHATTISGARH</option>
+                <option value="DADRA AND NAGAR HAVELI">DADRA AND NAGAR HAVELI</option>
+                <option value="DAMAN AND DIU">DAMAN AND DIU</option>
+                <option value="DELHI">DELHI</option>
+                <option value="GOA">GOA</option>
+                <option value="GUJARAT">GUJARAT</option>
+                <option value="HARYANA">HARYANA</option>
+                <option value="HIMACHAL PRADESH">HIMACHAL PRADESH</option>
+                <option value="JAMMU AND KASHMIR">JAMMU AND KASHMIR</option>
+                <option value="JHARKHAND">JHARKHAND</option>
+                <option value="KARNATAKA">KARNATAKA</option>
+                <option value="KERALA">KERALA</option>
+                <option value="LAKSHADWEEP">LAKSHADWEEP</option>
+                <option value="MADHYA PRADESH">MADHYA PRADESH</option>
+                <option value="MAHARASHTRA">MAHARASHTRA</option>
+                <option value="MANIPUR">MANIPUR</option>
+                <option value="MEGHALAYA">MEGHALAYA</option>
+                <option value="MIZORAM">MIZORAM</option>
+                <option value="NAGALAND">NAGALAND</option>
+                <option value="ODISHA">ODISHA</option>
+                <option value="PONDICHERRY">PONDICHERRY</option>
+                <option value="PUNJAB">PUNJAB</option>
+                <option value="RAJASTHAN">RAJASTHAN</option>
+                <option value="SIKKIM">SIKKIM</option>
+                <option value="TAMIL NADU">TAMIL NADU</option>
+                <option value="TELANGANA">TELANGANA</option>
+                <option value="TRIPURA">TRIPURA</option>
+                <option value="UTTAR PRADESH">UTTAR PRADESH</option>
+                <option value="UTTARAKHAND">UTTARAKHAND</option>
+                <option value="WEST BENGAL">WEST BENGAL</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" id="city" name="City" value="{{docedit.City}}" placeholder="Enter city">
+        </div>
+        <div class="form-group">
+            <label for="call-status">Call Status</label>
+            <select id="call-status" name="Call_status" value="{{docedit.Callstatus}}">
+                <option value="--select--">--select--</option>
+                <option value="Not Interested">Not Interested</option>
+                <option value="Ringing Not Response">Ringing Not Response</option>
+                <option value="Call Later">Call Later</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-actions">
+        <a href="sac">
+            <button type="button" class="btn">Cancel</button>
+        </a>
+        <button type="reset" class="btn">Reset</button>
+        <button type="submit" class="btn">Save</button>
+    </div>
+</form>
+{% endblock %}

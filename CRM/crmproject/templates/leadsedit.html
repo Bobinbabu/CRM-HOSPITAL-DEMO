@@ -1,0 +1,607 @@
+{% extends 'base.html' %}
+{% block title %}ticket without content{% endblock %}
+{% block content %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/newlead.css' %}">
+{% endblock %}
+<div class="container">
+  <h3>Profile</h3>
+
+    
+    <form action="" method="POST">
+      {% csrf_token %}
+      <div class="main_first">
+        <div>
+          <label for="status">Status:</label>
+          <select id="status" name="Status1" value="{{Ledit.Status2}}">
+            <option value="status">Nothing Selected</option>
+            <option value="Pending">Pending</option>
+            <option value="Follow Up">Follow Up</option>
+            <option value="Lead">Lead</option>
+            <option value="Closed">Closed</option>
+            <option value="Customer">Customer</option>
+          </select>
+        </div>
+        <div>
+          <label for="specialisation">Specialisation:</label>
+          <select id="specialisation" name="Specialisation1" value="{{Ledit.Specialisation2}}">
+            <option value="Specialization">Nothing Selected</option>
+            <option value="24 Hours Veterinary Doctors">24 Hours Veterinary Doctors</option>
+            <option value="24-Hours-Veterinary-Doctors">24-Hours-Veterinary-Doctors</option>
+            <option value="Acupressure">Acupressure</option>
+            <option value="Acupressure Doctors">Acupressure Doctors</option>
+            <option value="Acupressure Therapists">Acupressure Therapists</option>
+            <option value="Acupuncture">Acupuncture</option>
+            <option value="Acupuncture Doctors">Acupuncture Doctors</option>
+            <option value="Acupuncture Therapists">Acupuncture Therapists</option>
+            <option value="Alcohol Deaddiction Doctors">Alcohol Deaddiction Doctors</option>
+            <option value="Allopathic Doctors">Allopathic Doctors</option>
+            <option value="ANAESTHESIA">ANAESTHESIA</option>
+            <option value="Andrologist Doctors">Andrologist Doctors</option>
+            <option value="Appendix Doctors">Appendix Doctors</option>
+            <option value="Arthritis Doctors">Arthritis Doctors</option>
+            <option value="Asthma">Asthma</option>
+            <option value="Asthma Doctors">Asthma Doctors</option>
+            <option value="Audiologist Doctors">Audiologist Doctors</option>
+            <option value="AYURVEDA">AYURVEDA</option>
+            <option value="Ayurvedic Doctors">Ayurvedic Doctors</option>
+            <option value="Ayurvedic Doctors For Hair Fall Treatment">Ayurvedic Doctors For Hair Fall Treatment</option>
+            <option value="Ayurvedic Doctors For Skin Treatment">Ayurvedic Doctors For Skin Treatment</option>
+            <option value="Ayurvedic Sexologist Doctors">Ayurvedic Sexologist Doctors</option>
+            <option value="Bariatric Surgeon Doctors">Bariatric Surgeon Doctors</option>
+            <option value="Breast Cancer Doctors">Breast Cancer Doctors</option>
+            <option value="Breast Enlargement Doctors">Breast Enlargement Doctors</option>
+            <option value="Breast Implant Doctors">Breast Implant Doctors</option>
+            <option value="Breast Specialist Doctors">Breast Specialist Doctors</option>
+            <option value="Burn Surgery Doctors">Burn Surgery Doctors</option>
+            <option value="Cardiac Surgeon Doctors">Cardiac Surgeon Doctors</option>
+            <option value="Cardiologist">Cardiologist</option>
+            <option value="Cardiologists">Cardiologists</option>
+            <option value="CARDIOLOGY&amp;CARDIO THORACIC SURGERY">CARDIOLOGY &amp; CARDIO THORACIC SURGERY</option>
+            <option value="Cataract Operation Doctors">Cataract Operation Doctors</option>
+            <option value="Chiropractic">Chiropractic</option>
+            <option value="Chiropractic Doctors">Chiropractic Doctors</option>
+            <option value="Clinical Nutritionist">Clinical Nutritionist</option>
+            <option value="Clinical Psychologist Doctors">Clinical Psychologist Doctors</option>
+            <option value="Colonoscopy Doctors">Colonoscopy Doctors</option>
+            <option value="COMMUNITY MEDICINE">COMMUNITY MEDICINE</option>
+            <option value="Cosmetic Surgeon Doctors">Cosmetic Surgeon Doctors</option>
+            <option value="Cosmetic-Surgeon">Cosmetic-Surgeon</option>
+            <option value="Cosmetologist Doctors">Cosmetologist Doctors</option>
+            <option value="DENTAL">DENTAL</option>
+            <option value="Dental Surgeons">Dental Surgeons</option>
+            <option value="Dental-Surgeons">Dental-Surgeons</option>
+            <option value="Dentists">Dentists</option>
+            <option value="Dermatologists">Dermatologists</option>
+            <option value="DERMATOLOGY">DERMATOLOGY</option>
+            <option value="Dermatosurgeons">Dermatosurgeons</option>
+            <option value="Diabetologist Doctors">Diabetologist Doctors</option>
+            <option value="DIABETOLOGY">DIABETOLOGY</option>
+            <option value="Dietitians">Dietitians</option>
+            <option value="Doctors For Allergy">Doctors For Allergy</option>
+            <option value="Doctors For Eye Laser Treatment">Doctors For Eye Laser Treatment</option>
+            <option value="Doctors For Height">Doctors For Height</option>
+            <option value="Doctors For HIV Aids">Doctors For HIV Aids</option>
+            <option value="Doctors For Jaundice">Doctors For Jaundice</option>
+            <option value="Doctors For Laparoscopy">Doctors For Laparoscopy</option>
+            <option value="Doctors For Mentally Challenged">Doctors For Mentally Challenged</option>
+            <option value="Doctors For Varicose Veins Treatment">Doctors For Varicose Veins Treatment</option>
+            <option value="Drug De Addiction Centres">Drug De Addiction Centres</option>
+            <option value="Endocrinologists">Endocrinologists</option>
+            <option value="Endoscopist Doctors">Endoscopist Doctors</option>
+            <option value="ENT">ENT</option>
+            <option value="ENT Doctors">ENT Doctors</option>
+            <option value="ENT Surgeon Doctors">ENT Surgeon Doctors</option>
+            <option value="ENT-Surgeon">ENT-Surgeon</option>
+            <option value="ESIC">ESIC</option>
+            <option value="ESIC Doctors">ESIC Doctors</option>
+            <option value="Eye Surgeon Doctors">Eye Surgeon Doctors</option>
+            <option value="Eye-Specialists">Eye-Specialists</option>
+            <option value="Eye-Surgeon">Eye-Surgeon</option>
+            <option value="Fistula Surgeon Doctors">Fistula Surgeon Doctors</option>
+            <option value="FORENSIC MEDICINE">FORENSIC MEDICINE</option>
+            <option value="Gall Bladder Stone Removal Doctors">Gall Bladder Stone Removal Doctors</option>
+            <option value="GASTRO ENTOLOGY">GASTRO ENTOLOGY</option>
+            <option value="Gastroenterologist">Gastroenterologist</option>
+            <option value="Gastroenterologists">Gastroenterologists</option>
+            <option value="Gastrointestinal Surgeon Doctors">Gastrointestinal Surgeon Doctors</option>
+            <option value="GENERAL MEDICINE">GENERAL MEDICINE</option>
+            <option value="General Physician Doctors">General Physician Doctors</option>
+            <option value="GENERAL PRACTITIONER">GENERAL PRACTITIONER</option>
+            <option value="General Surgeon Doctors">General Surgeon Doctors</option>
+            <option value="GENERAL SURGERY">GENERAL SURGERY</option>
+            <option value="General-Physician">General-Physician</option>
+            <option value="General-Surgeon">General-Surgeon</option>
+            <option value="Gynaecologic Oncologist Doctors">Gynaecologic Oncologist Doctors</option>
+            <option value="Gynaecologist &amp; Obstetrician Doctors">Gynaecologist &amp; Obstetrician Doctors</option>
+            <option value="Gynaecologist-&amp;-Obstetrician">Gynaecologist-&amp;-Obstetrician</option>
+            <option value="GYNECOLOGY">GYNECOLOGY</option>
+            <option value="Hair Loss Doctors">Hair Loss Doctors</option>
+            <option value="Hair Transplant Doctors">Hair Transplant Doctors</option>
+            <option value="Hair-Loss">Hair-Loss</option>
+            <option value="Hair-Transplant">Hair-Transplant</option>
+            <option value="Hearing Care Clinics">Hearing Care Clinics</option>
+            <option value="Hematologist">Hematologist</option>
+            <option value="Hematologist Doctors">Hematologist Doctors</option>
+            <option value="Hepatitis Doctors">Hepatitis Doctors</option>
+            <option value="Hepatologist">Hepatologist</option>
+            <option value="Hepatologist Doctors">Hepatologist Doctors</option>
+            <option value="Hernia Doctors">Hernia Doctors</option>
+            <option value="Hernia Surgeon Doctors">Hernia Surgeon Doctors</option>
+            <option value="Home-Visit">Home-Visit</option>
+            <option value="HOMEO">HOMEO</option>
+            <option value="Homeopathic Doctors">Homeopathic Doctors</option>
+            <option value="Hypnotherapists">Hypnotherapists</option>
+            <option value="Infertility Doctors">Infertility Doctors</option>
+            <option value="Just Dail">Just Dail</option>
+            <option value="Kidney Stone Removal Laser Treatment Doctors">Kidney Stone Removal Laser Treatment Doctors</option>
+            <option value="Kidney Transplant Doctors">Kidney Transplant Doctors</option>
+            <option value="Kidney-Specialist">Kidney-Specialist</option>
+            <option value="Knee Replacement Surgeon Doctors">Knee Replacement Surgeon Doctors</option>
+            <option value="Laparoscopic Surgery Doctors">Laparoscopic Surgery Doctors</option>
+            <option value="Lasik Eye Surgery Doctors">Lasik Eye Surgery Doctors</option>
+            <option value="LIC Panel Doctors">LIC Panel Doctors</option>
+            <option value="Liposuction Doctors">Liposuction Doctors</option>
+            <option value="Liver-Specialist">Liver-Specialist</option>
+            <option value="MICROBIOLOGY">MICROBIOLOGY</option>
+            <option value="Migraine Therapy Doctors">Migraine Therapy Doctors</option>
+            <option value="Naturopath Doctors">Naturopath Doctors</option>
+            <option value="Neck Surgery Doctors">Neck Surgery Doctors</option>
+            <option value="Neonatologist Doctors">Neonatologist Doctors</option>
+            <option value="Nephrologist">Nephrologist</option>
+            <option value="Nephrologists">Nephrologists</option>
+            <option value="Neuro Physician Doctors">Neuro Physician Doctors</option>
+            <option value="Neuro-Physician">Neuro-Physician</option>
+            <option value="Neurologist">Neurologist</option>
+            <option value="Neurologists">Neurologists</option>
+            <option value="NEUROLOGY&amp;NEURO SURGERY">NEUROLOGY &amp; NEURO SURGERY</option>
+            <option value="Neurosurgeons">Neurosurgeons</option>
+            <option value="Occupational Therapy Doctors">Occupational Therapy Doctors</option>
+            <option value="On Call Doctor">On Call Doctor</option>
+            <option value="On Call Gynaecologist Doctors">On Call Gynaecologist Doctors</option>
+            <option value="On Call Paediatrician Doctors">On Call Paediatrician Doctors</option>
+            <option value="On Call Veterinary Doctors">On Call Veterinary Doctors</option>
+            <option value="On-Call-Doctors">On-Call-Doctors</option>
+            <option value="On-Call-Veterinary-Doctors">On-Call-Veterinary-Doctors</option>
+            <option value="Oncologist">Oncologist</option>
+            <option value="Oncologist Surgeon Doctors">Oncologist Surgeon Doctors</option>
+            <option value="Oncologists">Oncologists</option>
+            <option value="Online Doctors">Online Doctors</option>
+            <option value="Ophthalmologists">Ophthalmologists</option>
+            <option value="Oral Cancer Doctors">Oral Cancer Doctors</option>
+            <option value="Orthodontist">Orthodontist</option>
+            <option value="Orthodontist Doctors">Orthodontist Doctors</option>
+            <option value="Orthopaedic">Orthopaedic</option>
+            <option value="Orthopaedic Doctors">Orthopaedic Doctors</option>
+            <option value="Orthopaedic-Surgeons">Orthopaedic-Surgeons</option>
+            <option value="PAEDIATRIC">PAEDIATRIC</option>
+            <option value="Paediatric Cardiologist Doctors">Paediatric Cardiologist Doctors</option>
+            <option value="Paediatric Dermatologist">Paediatric Dermatologist</option>
+            <option value="Paediatric ENT Doctors">Paediatric ENT Doctors</option>
+            <option value="Paediatric Gastroenterologist Doctors">Paediatric Gastroenterologist Doctors</option>
+            <option value="Paediatric Neurologist Doctors">Paediatric Neurologist Doctors</option>
+            <option value="Paediatric Ophthalmologist Doctors">Paediatric Ophthalmologist Doctors</option>
+            <option value="Paediatric Orthopaedic Doctors">Paediatric Orthopaedic Doctors</option>
+            <option value="Paediatric Physiotherapy Doctors">Paediatric Physiotherapy Doctors</option>
+            <option value="Paediatric Psychiatrist Doctors">Paediatric Psychiatrist Doctors</option>
+            <option value="Paediatric Surgeon Doctors">Paediatric Surgeon Doctors</option>
+            <option value="Paediatricians">Paediatricians</option>
+            <option value="PAEDIATRICS&amp;PAEDIATRIC SURGERY">PAEDIATRICS &amp; PAEDIATRIC SURGERY</option>
+            <option value="Paedodontist">Paedodontist</option>
+            <option value="Paedodontist Doctors">Paedodontist Doctors</option>
+            <option value="Pain Relief Doctors">Pain Relief Doctors</option>
+            <option value="Paralysis">Paralysis</option>
+            <option value="Paralysis Doctors">Paralysis Doctors</option>
+            <option value="Pathologist Doctors">Pathologist Doctors</option>
+            <option value="Peripheral Nerve Surgeon Doctors">Peripheral Nerve Surgeon Doctors</option>
+            <option value="PHYSICAL MEDICINE&amp; REHABILITATION">PHYSICAL MEDICINE &amp; REHABILITATION</option>
+            <option value="PHYSIOLOGY">PHYSIOLOGY</option>
+            <option value="Physiotherapist For Home Visits">Physiotherapist For Home Visits</option>
+            <option value="Physiotherapist-For-Home-Visits">Physiotherapist-For-Home-Visits</option>
+            <option value="Physiotherapists">Physiotherapists</option>
+            <option value="Piles Ayurvedic Doctors">Piles Ayurvedic Doctors</option>
+            <option value="Piles Doctors">Piles Doctors</option>
+            <option value="Piles-Doctors">Piles-Doctors</option>
+            <option value="Placement Services (Candidate)">Placement Services (Candidate)</option>
+            <option value="PLASTIC SURGERY">PLASTIC SURGERY</option>
+            <option value="Podiatrist Doctors">Podiatrist Doctors</option>
+            <option value="Practo">Practo</option>
+            <option value="PSYCHATRY">PSYCHATRY</option>
+            <option value="Psychiatrists">Psychiatrists</option>
+            <option value="Psychiatrists For Home Visit">Psychiatrists For Home Visit</option>
+            <option value="Psychologist Doctors">Psychologist Doctors</option>
+            <option value="Psychologist Doctors For Children">Psychologist Doctors For Children</option>
+            <option value="Psychotherapy Doctors">Psychotherapy Doctors</option>
+            <option value="PULMANOLOGY">PULMANOLOGY</option>
+            <option value="Pulmonologists Doctors">Pulmonologists Doctors</option>
+            <option value="RADIO THERAPY RADIOLOGY">RADIO THERAPY RADIOLOGY</option>
+            <option value="Radiologist">Radiologist</option>
+            <option value="Radiologist Doctors">Radiologist Doctors</option>
+            <option value="Respiratory Doctors">Respiratory Doctors</option>
+            <option value="Rheumatologist">Rheumatologist</option>
+            <option value="Rheumatologist Doctors">Rheumatologist Doctors</option>
+            <option value="Sexologist">Sexologist</option>
+            <option value="Sexologist Doctors">Sexologist Doctors</option>
+            <option value="Sexologist Doctors For Female">Sexologist Doctors For Female</option>
+            <option value="Sexologist Doctors For Male">Sexologist Doctors For Male</option>
+            <option value="Sexologist-For-Female">Sexologist-For-Female</option>
+            <option value="Sexologist-For-Male">Sexologist-For-Male</option>
+            <option value="Siddha">Siddha</option>
+            <option value="Skin Treatment Homeopathic Doctors">Skin Treatment Homeopathic Doctors</option>
+            <option value="Somnologists">Somnologists</option>
+            <option value="Sonologist Doctors">Sonologist Doctors</option>
+            <option value="Specialists">Specialists</option>
+            <option value="Speech Therapists">Speech Therapists</option>
+            <option value="Speech-Therapists">Speech-Therapists</option>
+            <option value="Spinal-Surgery">Spinal-Surgery</option>
+            <option value="Spine Surgeons">Spine Surgeons</option>
+            <option value="Stem Cell Therapy Doctors">Stem Cell Therapy Doctors</option>
+            <option value="Surgeon">Surgeon</option>
+            <option value="Test Spec">Test Spec</option>
+            <option value="tester">tester</option>
+            <option value="Therapist Doctors">Therapist Doctors</option>
+            <option value="Thyroid">Thyroid</option>
+            <option value="Thyroid Doctors">Thyroid Doctors</option>
+            <option value="Trichologist">Trichologist</option>
+            <option value="Trichologist Doctors">Trichologist Doctors</option>
+            <option value="Tuberculosis Doctors">Tuberculosis Doctors</option>
+            <option value="Ultrasonologist Doctors">Ultrasonologist Doctors</option>
+            <option value="Unani Doctors">Unani Doctors</option>
+            <option value="Urologist">Urologist</option>
+            <option value="Urologist Doctors">Urologist Doctors</option>
+            <option value="VASCULAR SURGERY">VASCULAR SURGERY</option>
+            <option value="Vascular Surgery Doctors">Vascular Surgery Doctors</option>
+            <option value="VETERINARY">VETERINARY</option>
+            <option value="Veterinary Doctors">Veterinary Doctors</option>
+            <option value="Weight Loss Doctors">Weight Loss Doctors</option>
+            <option value="x">x</option>
+          </select>
+        </div>
+          <div>
+            <label for="assigned">Assigned:</label>
+            <select id="assigned" name="Assigned1" value="{{Ledit.Assigned2}}">
+              <option value="assigned">Nothing Selected</option>
+              <option value="Vivek T K">Vivek T K</option>
+              <option value="Vipin  Das">Vipin  Das</option>
+              <option value="Vipin  K K">Vipin  K K</option>
+              <option value="Sreelakshmi M">Sreelakshmi M</option>
+              <option value="Shuhaib ds">Shuhaib ds</option>
+              <option value="Shireen Saleem">Shireen Saleem</option>
+              <option value="Salman">Salman</option>
+              <option value="Rukksana">Rukksana</option>
+              <option value="Riya DS">Riya DS</option>
+              <option value="Rinshida">Rinshida</option>
+              <option value="Rimna DS">Rimna DS</option>
+              <option value="Nithara K">Nithara K</option>
+              <option value="Nishma M">Nishma M</option>
+              <option value="Neenu T C">Neenu T C</option>
+              <option value="Muhammed">Muhammed</option>
+              <option value="Lincy Philip">Lincy Philip</option>
+              <option value="Leah  Fathima">Leah  Fathima</option>
+              <option value="Lakshmi Doctosmart">Lakshmi Doctosmart</option>
+              <option value="Justin Doctosmart">Justin Doctosmart</option>
+              <option value="Jasmine Alisha">Jasmine Alisha</option>
+              <option value="Hashma .">Hashma .</option>
+              <option value="Gold">Gold</option>
+              <option value="Gayathri">Gayathri</option>
+              <option value="Fayis  E K">Fayis  E K</option>
+              <option value="Doctosmart CRM">Doctosmart CRM</option>
+              <option value="Deepika Heeralal">Deepika Heeralal</option>
+              <option value="Bijeesh Raghavan">Bijeesh Raghavan</option>
+              <option value="Asif  Ali">Asif  Ali</option>
+              <option value="Ashwathy">Ashwathy</option>
+              <option value="Arshed">Arshed</option>
+              <option value="Archana Doctosmart">Archana Doctosmart</option>
+              <option value="Anusmaya p">Anusmaya p</option>
+              <option value="Anusha K">Anusha K</option>
+              <option value="AMRUTHA DS">AMRUTHA DS</option>
+              <option value="Alia docto">Alia docto</option>
+              <option value="Afra N K">Afra N K</option>
+              <option value="Adih  Rahman">Adih  Rahman</option>
+              <option value="Adarsh M M">Adarsh M M</option>
+              <option value="Abhi">Abhi</option>
+            </select>
+          </div>
+        </div>
+
+        <label for="tags">Tags:</label>
+        <select id="tags" name="Tags1" value="{{Ledit.Tags2}}">
+          <option value="Tags">Tags</option>
+          <option value="Offline">Offline</option>
+          <option value="Online">Online</option>
+        </select>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="Name1" value="{{Ledit.Name2}}" placeholder="Enter your name">
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="Address1" value="{{Ledit.Address2}}" placeholder="Enter your address">
+
+        <label for="position">Position:</label>
+        <input type="text" id="position" name="Position1" value="{{Ledit.Position2}}" placeholder="Enter your position">
+
+        <label for="city">City :</label>
+        <input type="text" id="city" name="City1" value="{{Ledit.City2}}" placeholder="Enter your city">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="Email1" value="{{Ledit.Email2}}" placeholder="Enter your email">
+
+        <label for="state">State:</label>
+        <input type="text" id="state" name="State1" value="{{Ledit.State2}}" placeholder="Enter your state">
+
+        <label for="website">Website:</label>
+        <input type="text" id="website" name="Website1" value="{{Ledit.Website2}}" placeholder="Enter your website">
+
+        <label for="company">Company:</label>
+        <input type="text" id="company" name="Company1" value="{{Ledit.Company2}}" placeholder="Enter your company">
+
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="Phone1" value="{{Ledit.Phone2}}" placeholder="Enter your phone">
+
+        <label for="country">Country:</label>
+        <select id="country" name="Country1" value="{{Ledit.Country2}}">
+          <option value="country">Nothing Selected</option>
+          <option value="Afghanistan">Afghanistan</option>
+          <option value="Albania">Albania</option>
+          <option value="Algeria">Algeria</option>
+          <option value="Andorra">Andorra</option>
+          <option value="Angola">Angola</option>
+          <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+          <option value="Argentina">Argentina</option>
+          <option value="Armenia">Armenia</option>
+          <option value="Australia">Australia</option>
+          <option value="Austria">Austria</option>
+          <option value="Azerbaijan">Azerbaijan</option>
+          <option value="Bahamas">Bahamas</option>
+          <option value="Bahrain">Bahrain</option>
+          <option value="Bangladesh">Bangladesh</option>
+          <option value="Barbados">Barbados</option>
+          <option value="Belarus">Belarus</option>
+          <option value="Belgium">Belgium</option>
+          <option value="Belize">Belize</option>
+          <option value="Benin">Benin</option>
+          <option value="Bhutan">Bhutan</option>
+          <option value="Bolivia">Bolivia</option>
+          <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+          <option value="Botswana">Botswana</option>
+          <option value="Brazil">Brazil</option>
+          <option value="Brunei">Brunei</option>
+          <option value="Bulgaria">Bulgaria</option>
+          <option value="Burkina Faso">Burkina Faso</option>
+          <option value="Burundi">Burundi</option>
+          <option value="Cabo Verde">Cabo Verde</option>
+          <option value="Cambodia">Cambodia</option>
+          <option value="Cameroon">Cameroon</option>
+          <option value="Canada">Canada</option>
+          <option value="Central African Republic">Central African Republic</option>
+          <option value="Chad">Chad</option>
+          <option value="Chile">Chile</option>
+          <option value="China">China</option>
+          <option value="Colombia">Colombia</option>
+          <option value="Comoros">Comoros</option>
+          <option value="Congo, Democratic Republic of the">Congo, Democratic Republic of the</option>
+          <option value="Congo, Republic of the">Congo, Republic of the</option>
+          <option value="Costa Rica">Costa Rica</option>
+          <option value="Croatia">Croatia</option>
+          <option value="Cuba">Cuba</option>
+          <option value="Cyprus">Cyprus</option>
+          <option value="Czech Republic">Czech Republic</option>
+          <option value="Denmark">Denmark</option>
+          <option value="Djibouti">Djibouti</option>
+          <option value="Dominica">Dominica</option>
+          <option value="Dominican Republic">Dominican Republic</option>
+          <option value="Ecuador">Ecuador</option>
+          <option value="Egypt">Egypt</option>
+          <option value="El Salvador">El Salvador</option>
+          <option value="Equatorial Guinea">Equatorial Guinea</option>
+          <option value="Eritrea">Eritrea</option>
+          <option value="Estonia">Estonia</option>
+          <option value="Eswatini">Eswatini</option>
+          <option value="Ethiopia">Ethiopia</option>
+          <option value="Fiji">Fiji</option>
+          <option value="Finland">Finland</option>
+          <option value="France">France</option>
+          <option value="Gabon">Gabon</option>
+          <option value="Gambia">Gambia</option>
+          <option value="Georgia">Georgia</option>
+          <option value="Germany">Germany</option>
+          <option value="Ghana">Ghana</option>
+          <option value="Greece">Greece</option>
+          <option value="Grenada">Grenada</option>
+          <option value="Guatemala">Guatemala</option>
+          <option value="Guinea">Guinea</option>
+          <option value="Guinea-Bissau">Guinea-Bissau</option>
+          <option value="Guyana">Guyana</option>
+          <option value="Haiti">Haiti</option>
+          <option value="Honduras">Honduras</option>
+          <option value="Hungary">Hungary</option>
+          <option value="Iceland">Iceland</option>
+          <option value="India" Selected>India</option>
+          <option value="Indonesia">Indonesia</option>
+          <option value="Iran">Iran</option>
+          <option value="Iraq">Iraq</option>
+          <option value="Ireland">Ireland</option>
+          <option value="Israel">Israel</option>
+          <option value="Italy">Italy</option>
+          <option value="Jamaica">Jamaica</option>
+          <option value="Japan">Japan</option>
+          <option value="Jordan">Jordan</option>
+          <option value="Kazakhstan">Kazakhstan</option>
+          <option value="Kenya">Kenya</option>
+          <option value="Kiribati">Kiribati</option>
+          <option value="Korea, North">Korea, North</option>
+          <option value="Korea, South">Korea, South</option>
+          <option value="Kosovo">Kosovo</option>
+          <option value="Kuwait">Kuwait</option>
+          <option value="Kyrgyzstan">Kyrgyzstan</option>
+          <option value="Laos">Laos</option>
+          <option value="Latvia">Latvia</option>
+          <option value="Lebanon">Lebanon</option>
+          <option value="Lesotho">Lesotho</option>
+          <option value="Liberia">Liberia</option>
+          <option value="Libya">Libya</option>
+          <option value="Liechtenstein">Liechtenstein</option>
+          <option value="Lithuania">Lithuania</option>
+          <option value="Luxembourg">Luxembourg</option>
+          <option value="Madagascar">Madagascar</option>
+          <option value="Malawi">Malawi</option>
+          <option value="Malaysia">Malaysia</option>
+          <option value="Maldives">Maldives</option>
+          <option value="Mali">Mali</option>
+          <option value="Malta">Malta</option>
+          <option value="Marshall Islands">Marshall Islands</option>
+          <option value="Mauritania">Mauritania</option>
+          <option value="Mauritius">Mauritius</option>
+          <option value="Mexico">Mexico</option>
+          <option value="Micronesia">Micronesia</option>
+          <option value="Moldova">Moldova</option>
+          <option value="Monaco">Monaco</option>
+          <option value="Mongolia">Mongolia</option>
+          <option value="Montenegro">Montenegro</option>
+          <option value="Morocco">Morocco</option>
+          <option value="Mozambique">Mozambique</option>
+          <option value="Myanmar">Myanmar</option>
+          <option value="Namibia">Namibia</option>
+          <option value="Nauru">Nauru</option>
+          <option value="Nepal">Nepal</option>
+          <option value="Netherlands">Netherlands</option>
+          <option value="New Zealand">New Zealand</option>
+          <option value="Nicaragua">Nicaragua</option>
+          <option value="Niger">Niger</option>
+          <option value="Nigeria">Nigeria</option>
+          <option value="North Macedonia">North Macedonia</option>
+          <option value="Norway">Norway</option>
+          <option value="Oman">Oman</option>
+          <option value="Pakistan">Pakistan</option>
+          <option value="Palau">Palau</option>
+          <option value="Palestine">Palestine</option>
+          <option value="Panama">Panama</option>
+          <option value="Papua New Guinea">Papua New Guinea</option>
+          <option value="Paraguay">Paraguay</option>
+          <option value="Peru">Peru</option>
+          <option value="Philippines">Philippines</option>
+          <option value="Poland">Poland</option>
+          <option value="Portugal">Portugal</option>
+          <option value="Qatar">Qatar</option>
+          <option value="Romania">Romania</option>
+          <option value="Russia">Russia</option>
+          <option value="Rwanda">Rwanda</option>
+          <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+          <option value="Saint Lucia">Saint Lucia</option>
+          <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
+          <option value="Samoa">Samoa</option>
+          <option value="San Marino">San Marino</option>
+          <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+          <option value="Saudi Arabia">Saudi Arabia</option>
+          <option value="Senegal">Senegal</option>
+          <option value="Serbia">Serbia</option>
+          <option value="Seychelles">Seychelles</option>
+          <option value="Sierra Leone">Sierra Leone</option>
+          <option value="Singapore">Singapore</option>
+          <option value="Slovakia">Slovakia</option>
+          <option value="Slovenia">Slovenia</option>
+          <option value="Solomon Islands">Solomon Islands</option>
+          <option value="Somalia">Somalia</option>
+          <option value="South Africa">South Africa</option>
+          <option value="South Sudan">South Sudan</option>
+          <option value="Spain">Spain</option>
+          <option value="Sri Lanka">Sri Lanka</option>
+          <option value="Sudan">Sudan</option>
+          <option value="Suriname">Suriname</option>
+          <option value="Sweden">Sweden</option>
+          <option value="Switzerland">Switzerland</option>
+          <option value="Syria">Syria</option>
+          <option value="Taiwan">Taiwan</option>
+          <option value="Tajikistan">Tajikistan</option>
+          <option value="Tanzania">Tanzania</option>
+          <option value="Thailand">Thailand</option>
+          <option value="Timor-Leste">Timor-Leste</option>
+          <option value="Togo">Togo</option>
+          <option value="Tonga">Tonga</option>
+          <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+          <option value="Tunisia">Tunisia</option>
+          <option value="Turkey">Turkey</option>
+          <option value="Turkmenistan">Turkmenistan</option>
+          <option value="Tuvalu">Tuvalu</option>
+          <option value="Uganda">Uganda</option>
+          <option value="Ukraine">Ukraine</option>
+          <option value="United Arab Emirates">United Arab Emirates</option>
+          <option value="United Kingdom">United Kingdom</option>
+          <option value="United States">United States</option>
+          <option value="Uruguay">Uruguay</option>
+          <option value="Uzbekistan">Uzbekistan</option>
+          <option value="Vanuatu">Vanuatu</option>
+          <option value="Vatican City">Vatican City</option>
+          <option value="Venezuela">Venezuela</option>
+          <option value="Vietnam">Vietnam</option>
+          <option value="Yemen">Yemen</option>
+          <option value="Zambia">Zambia</option>
+          <option value="Zimbabwe">Zimbabwe</option>
+        </select> 
+
+        <label for="zip">Zip Code:</label>
+        <input type="text" id="zip" name="Zipcode1" value="{{Ledit.Zipcode2}}" placeholder="Enter your zip code">
+
+        <label for="language">Default Language:</label>
+        <select id="System_Default" name="Language1" value="{{Ledit.Language2}}">
+          <option value="System Default">System Default</option>
+          <option value="swedish">Swedish</option>
+          <option value="japanese">Japanese</option>
+          <option value="chinese">Chinese</option>
+          <option value="romanian">Romanian</option>
+          <option value="catalan">Catalan</option>
+          <option value="italian">Italian</option>
+          <option value="english">English</option>
+          <option value="indonesia">Indonesia</option>
+          <option value="russian">Russian</option>
+          <option value="dutch">Dutch</option>
+          <option value="portuguese">Portuguese</option>
+          <option value="spanish">Spanish</option>
+          <option value="czech">Czech</option>
+          <option value="slovak">Slovak</option>
+          <option value="vietnamese">Vietnamese</option>
+          <option value="persian">Persian</option>
+          <option value="german">German</option>
+          <option value="polish">Polish</option>
+          <option value="french">French</option>
+          <option value="turkish">Turkish</option>
+          <option value="portuguese_br">Portuguese_br</option>
+        </select>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="Description1" value="{{Ledit.Description2}}" placeholder="Enter your description"></textarea>
+
+        <label>Options:</label>
+        <div style="display: flex;">
+          <input type="radio" id="option1" name="Options1" value="{{Ledit.Public2}}" value="public">
+          <label for="option1">Public</label>
+        </div>
+        <div style="display: flex;">
+          <input type="radio" id="option2" name="Options2" value="{{Ledit.ContactedToday2}}" value="contacted_today">
+          <label for="option2">Contacted Today</label>
+        </div>
+
+        <label for="priority">Priority:</label>
+        <select id="priority" name="Priority1" value="{{Ledit.Priority2}}">
+          <option value="Nothing Selected">Nothing Selected</option>
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Average">Average</option>
+          <option value="Low">Low</option>
+        </select>
+
+        <label for="remark">Remark:</label>
+        <textarea id="remark" name="Remark1" value="{{Ledit.Remark2}}" placeholder="Enter your remark"></textarea>
+
+        <button type="submit" class="btn">Save</button>
+        <button type="reset" class="btn">Reset</button>
+      </div>
+    </form> 
+  <div style="margin-left: 10.7%; margin-top: -69px;"> 
+    <a href="lead">
+      <button type="submit" class="btn">Close</button>
+    </a>
+  </div>
+
+{% endblock %}

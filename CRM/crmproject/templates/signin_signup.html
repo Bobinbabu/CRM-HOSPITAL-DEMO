@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/in_up.css' %}" />
+    <title>Sign in & Sign up Form</title>
+  </head>
+  <body>
+  
+    <div class="container">
+      <div class="forms-container">
+        <div class="signin-signup">
+          <!-- sign in -->
+          <form action="signin" method="POST" class="sign-in-form">
+            {% csrf_token %} 
+            <h2 class="title">Sign in</h2>
+            <h6 style="text-align: center; font-family: 'poppins', sans-serif; color: red;">{{key}}</h6>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="Username" name="username" />
+            </div>
+            <h6 style="text-align: center; font-family: 'poppins', sans-serif; color: red;">{{key}}</h6>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Password" name="password" />
+            </div>
+            <input type="submit" value="Login" class="btn solid" />
+          </form>
+
+          <!-- sign up -->
+          <form action="signup" method="POST" class="sign-up-form">
+            {% csrf_token %}
+            <h2 class="title">Sign up</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="Username" name="username"/>
+            </div>
+            <div class="input-field">
+              <i class="fas fa-envelope"></i>
+              <input type="email" placeholder="Email" name="email" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Password" name="password1"/>
+            </div>
+            <input type="submit" class="btn" value="Sign up" />
+          </form>
+        </div>
+      </div>
+
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content">
+            <h3>New here ?</h3>
+            <p>
+              A warm Welcome to you we're Thrilled to have you with us
+              your journy with us starts now!
+            </p>
+            <button class="btn transparent" id="sign-up-btn">
+              Sign up
+            </button>
+          </div>
+        </div>
+        <div class="panel right-panel">
+          <div class="content">
+            <h3>One of us ?</h3>
+            <p>
+              Welcome! you are one of us now, and together, 
+              we'll achive great things.
+            </p>
+            <button class="btn transparent" id="sign-in-btn">
+              Sign in
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../static/js/in_up.js"></script>
+  </body>
+</html>

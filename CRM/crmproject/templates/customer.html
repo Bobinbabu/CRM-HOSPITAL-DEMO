@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% block title %}ticket without content{% endblock %}
+{% block content %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/costo.css' %}">
+{% endblock %}
+
+<div class="btns">
+  <a href="newcus">
+    <button type="button" class="btn">New Customer</button>
+  </a>
+</div>
+
+<div class="text">Customer Summary</div>
+
+
+    <div class="wrapper">
+
+      <div class="card">
+        <div class="text" style="color: rgb(80, 80, 94);">Total Customers</div>
+        <div class="divide" >0</div>
+      </div>
+      
+      <div class="card">
+        <div class="text" style="color: rgb(73, 73, 200);">Active Customer</div>
+        <div class="divide" >0</div>
+      </div>
+  
+      <div class="card">
+        <div class="text" style="color: rgb(241, 20, 20);">Inactive Customers</div>
+        <div class="divide" >0</div>
+      </div>
+
+      <div class="card">
+        <div class="text" style="color: rgb(32, 211, 26);">Active Contact</div>
+        <div class="divide" >0</div>
+      </div>
+
+      <div class="card">
+        <div class="text" style="color: rgb(220, 75, 123);">Inactive Contact</div>
+        <div class="divide" >0</div>
+      </div>
+  
+      <div class="card">
+        <div class="text" style="color: rgb(85, 85, 93);">Contact Logged Today</div>
+        <div class="divide" >0</div>
+      </div>
+      
+    </div>
+
+    <div class="tools">
+        <input type="number" name="num">
+        <button type="button">Export</button>
+        <button type="button"><i class="fa-solid fa-rotate"></i></button>
+
+        <select class="select">
+            <option>aaaaa</option>
+            <option>aaaaa</option>
+            <option>aaaaa</option>
+            <option>aaaaa</option>
+            <option>aaaaa</option>
+            <option>aaaaa</option>
+        </select>
+        <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search...">
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Clinic</th>
+            <th>Product type</th>
+            <th>Product Name</th>
+            <th>Excutive Name</th>
+            <th>Bill Amount</th>
+            <th>Bill Paid</th>
+            <th>Bill Balace</th>
+            <th>Praimary Email</th>
+            <th>Phone</th>
+            <th>active</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for c in cust1 %}
+          <tr>
+            <td data-label="ID">{{forloop.counter}}</td>
+            <td data-label="Clinic">{{c.Clinic3}}</td>
+            <td data-label="Product type"></td>
+            <td data-label="Product Name"></td>
+            <td data-label="Excutive Name"></td>
+            <td data-label="Bill Amount"></td>
+            <td data-label="Bill Paid"></td>
+            <td data-label="Bill Balace"></td>
+            <td data-label="Praimary Email"></td>
+            <td data-label="phone">{{c.Phone3}}</td>
+            <td data-label="active">Active</td>
+            <td data-label="Edit"><a href="{% url 'editcustomer' c.id %}"><i class="fa-solid fa-pencil" style="color: blue;"></i></a></td>
+            <td data-label="Delete"><a href="{% url 'delecustomer' id=c.id %}"><i class="fa-solid fa-trash-can" style="color: red;"></i></a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+{% endblock %}

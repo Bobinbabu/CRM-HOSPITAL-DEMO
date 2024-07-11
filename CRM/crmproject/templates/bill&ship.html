@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block title %}ticket without content{% endblock %}
+{% block content %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/bill&ship.css' %}">
+{% endblock %}
+<div class="text">New customer</div>
+<div class="form-actions">
+    <a href="newcus"><button type="button" class="btn">Customer Details</button></a>
+    <a href="customf"><button type="button" class="btn">Custom Feild</button></a>
+    <div class="text1">Billing & Shipping</div>
+</div>
+
+<div class="container">
+    <form>
+        <div class="form-row">
+            <div class="form-column">
+                <div class="address-header">
+                    <h2>Billing Address</h2>
+                    <span>Same as Customer Info</span>
+                </div>
+                <div class="form-group">
+                    <label for="billing-street">Street</label>
+                    <textarea id="billing-street" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="billing-city">City</label>
+                    <input type="text" id="billing-city">
+                </div>
+                <div class="form-group">
+                    <label for="billing-state">State</label>
+                    <input type="text" id="billing-state">
+                </div>
+                <div class="form-group">
+                    <label for="billing-zip">Zip Code</label>
+                    <input type="text" id="billing-zip">
+                </div>
+                <div class="form-group">
+                    <label for="billing-country">Country</label>
+                    <select id="billing-country">
+                        <option>Nothing selected</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </div>
+            </div>
+            <div class="form-column">
+                <div class="address-header">
+                    <h2>Shipping Address</h2>
+                    <span>Copy Billing Address</span>
+                </div>
+                <div class="form-group">
+                    <label for="shipping-street">Street</label>
+                    <textarea id="shipping-street" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="shipping-city">City</label>
+                    <input type="text" id="shipping-city">
+                </div>
+                <div class="form-group">
+                    <label for="shipping-state">State</label>
+                    <input type="text" id="shipping-state">
+                </div>
+                <div class="form-group">
+                    <label for="shipping-zip">Zip Code</label>
+                    <input type="text" id="shipping-zip">
+                </div>
+                <div class="form-group">
+                    <label for="shipping-country">Country</label>
+                    <select id="shipping-country">
+                        <option>Nothing selected</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="button">Save</button>
+            <button type="submit">Save And Create Contact</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

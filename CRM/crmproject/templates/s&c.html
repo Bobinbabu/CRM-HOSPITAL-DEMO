@@ -1,0 +1,246 @@
+{% extends 'base.html' %}
+{% block title %}ticket without content{% endblock %}
+{% block content %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/s&c.css' %}">
+{% endblock %}
+    <div style="margin-left: 20px;">
+        <h1>Search And Call</h1>
+    </div>
+    <div class="card" style="margin-top: 40px;">
+        <div class="card-body">
+            <h5 class="card-title">NAME :&nbsp;&nbsp;{{search.Title}}&nbsp;{{search.Name}}</h5>
+            <h6 class="card-text">Phone number</h6>
+            <select class="form-control">
+                <option selected>{{search.Phone}}</option>
+                <option value="1">8975643332</option>
+            </select>
+        </div>
+        <a href="#" class="text-primary"><i class="fa-solid fa-pen-to-square"></i>EDIT</a>
+    </div>
+
+               
+
+
+<table class="table" style="margin-top: 50px;">
+    <thead>
+        <tr>
+            <th>IS NO</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Software Type</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td data-label="IS NO">1</td>
+            <td data-label="Product Name">shamil k</td>
+            <td data-label="Price">PFS</td>
+            <td data-label="Software Type">online</td>
+            <td data-label="Edit">9876785423</td>
+            <td data-label="Delete">PD</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="sidebar-container" style="margin-top: 40px;">
+    <div class="sidebar-content">
+        <div>
+            <i class="far fa-rectangle-xmark" id="ph1"></i>
+            <a href="#" id="ah1" onclick="showForm('closed')">Closed</a>
+        </div>
+        <div>
+            <i class="far fa-folder-closed" id="ph2"></i>
+            <a href="#" id="ah2" onclick="showForm('interested')">Interested</a>
+        </div>
+        <div>
+            <i class="fas fa-user-plus" id="ph3"></i>
+            <a href="#" id="ah3" onclick="showForm('followup')">Followup</a>
+        </div>
+        <div>
+            <i class="fas fa-circle-exclamation" id="ph4"></i>
+            <a href="#" id="ah4" onclick="showForm('notInterested')">Not Interested</a>
+        </div>
+        <div>
+            <i class="fas fa-phone-slash" id="ph5"></i>
+            <a href="#" id="ah5" onclick="showForm('ringingNotResponse')">Ringing Not Response</a>
+        </div>
+        <div>
+            <i class="fas fa-phone" id="ph6"></i> 
+            <a href="#" id="ah6" onclick="showForm('callLater')">Call later</a>
+        </div>
+        <div>
+            <i class="fas fa-file-invoice" id="ph7"></i>
+            <a href="#" id="ah7">Invoice</a>
+        </div>
+    </div>
+</div>
+
+<!-- Forms -->
+
+<div id="followupForm" class="form-container">
+<form id="followupForm" method="post" action="submit.php">
+    <div class="cls text-primary">
+        <button class="closeFormButton " id="closeFormButton" type="button"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <label for="nextFollowup">Next followup</label>
+    <input type="date" name="followupDate" placeholder="Date">
+    <input type="text" name="description" placeholder="Description">
+    <button type="submit" class="btn btn-fill btn-primary">Save</button>
+</form>
+</div>
+<div style="height: 300px; overflow:scroll;" id="closedForm" class="form-container">
+<form id="closedForm" method="post" action="submit.php">
+    <div class="cls text-primary">
+        <button class="closeFormButton" id="closeFormButton1" type="button"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <label for="productTypeSelect">Product Type</label>
+    <select id="productTypeSelect" name="productType">
+        <option value="selectitem1">Select Item 1</option>
+        <option value="selectitem2">Select Item 2</option>
+        <option value="selectitem3">Select Item 3</option>
+    </select>
+    <label for="productSelect">Product</label>
+    <select id="productSelect" name="product">
+        <option value="selectproduct1">Select Product 1</option>
+        <option value="selectproduct2">Select Product 2</option>
+        <option value="selectproduct3">Select Product 3</option>
+    </select>
+    <label for="quantity">Quantity</label>
+    <input type="text" id="quantityInput" name="quantity" placeholder="Quantity">
+    <label for="price">Price</label>
+    <input type="text" id="priceInput" name="price" placeholder="Price">
+    <label for="discount">Discount</label>
+    <input type="text" id="discountInput" name="discount" placeholder="Discount">
+    <select id="offerSelect" name="offer">
+        <label for="offer">select offer</label>
+        <option value="Offer 1">Offer 1</option>
+        <option value="Offer 2">Offer 2</option>
+        <option value="Offer 3">Offer 3</option>
+    </select>
+    <label for="Installation date and time">installation Date Time</label>
+    <input type="date" id="installationDateInput" name="installationDate" placeholder="Installation Date">
+    <input type="time" id="installationTimeInput" name="installationTime" placeholder="Installation Time">
+    <label for="Duration from">duration From</label>
+    <input type="time" id="durationFromInput" name="durationFrom" placeholder="Duration From">
+    <label for="durationto">Duration to</label>
+    <input type="time" id="durationToInput" name="durationTo" placeholder="Duration To">
+    <label for="Installation type">Installation type</label>
+    <select id="installationTypeSelect" name="installationType">
+        <option value="Type 1">Type 1</option>
+        <option value="Type 2">Type 2</option>
+        <option value="Type 3">Type 3</option>
+    </select>
+    <select id="paymentTypeSelect" name="paymentType">
+        <option value="Cash">Cash</option>
+        <option value="Card">Card</option>
+        <option value="Online">Online</option>
+    </select>
+    <input type="text" id="balanceInput" name="balance" placeholder="Balance">
+    <input type="text" id="descriptionInput" name="description" placeholder="Description">
+    <button type="submit" class="btn btn-fill btn-primary" >Save</button>
+</form>
+</div>
+
+<div id="notInterestedForm" class="form-container">
+<form id="notInterestedForm" method="post" action="submit.php">
+    <div class="cls text-primary">
+        <button class="closeFormButton " id="closeFormButton" type="button"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+   <label for="notInterestedDate">Date and time</label>
+    <input type="date" name="notInterestedDate" placeholder="Date">
+    <input type="text" name="reason" placeholder="Reason">
+    <button type="submit" class="btn btn-fill btn-primary">Save</button>
+</form>
+</div>
+
+<div id="ringingNotResponseForm" class="form-container">
+<form id="ringingNotResponseForm" method="post" action="submit.php">
+    <div class="cls text-primary">
+        <button class="closeFormButton" id="closeFormButton" type="button"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <label for="nextcallingdate">Next calling </label>
+    <input type="date" name="nextcallingdate" placeholder="Date">
+    <button type="submit" class="btn btn-fill btn-primary">Save</button>
+</form>
+</div>
+
+<div id="callLaterForm" class="form-container">
+<form id="callLaterForm" method="post" action="submit.php">
+    <div class="cls text-primary">
+        <button class="closeFormButton" id="closeFormButton" type="button"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <label for="nextcallingdate">Next calling </label>
+    <input type="date" name="nextcallingdate" placeholder="Date">
+    <input type="text" name="reason" placeholder="Reason">
+    <button type="submit" class="btn btn-fill btn-primary">Save</button>
+</form>
+</div>
+
+<div id="interestedForm" class="form-container">
+<form id="interestedForm" method="post" action="submit.php">
+    <div class="cls text-primary">
+        <button class="closeFormButton" id="closeFormButton" type="button"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <label for="type">Type</label>
+    <select name="type">
+        <option value="leads">Leads</option>
+        <option value="Type 2">Type 2</option>
+        <option value="Type 3">Type 3</option>
+    </select>
+    <label for="priority">Priority</label>
+    <select name="priority">
+        <option value="Hot">Hot</option>
+        <option value="Priority 2">Priority 2</option>
+        <option value="Priority 3">Priority 3</option>
+    </select>
+    <label for="demoDateTime">Demo Date and Time</label>
+    <input type="datetime-local" name="demoDateTime" placeholder="Demo Date Time">
+    <label for="productType">Product type</label>
+    <select name="productType">
+        <option value="selectwork">Select work</option>
+        <option value="Product 2">Product 2</option>
+        <option value="Product 3">Product 3</option>
+    </select>
+    <input type="text" name="description" placeholder="Description">
+    <button type="submit" class="btn btn-fill btn-primary">Save</button>
+</form>
+</div>
+
+    
+<!-- JavaScript -->
+<script>
+    function showForm(formType) {
+        var formContainers = document.querySelectorAll('.form-container');
+        formContainers.forEach(function(container) {
+            container.classList.remove('active');
+        });
+
+        var activeForm = document.getElementById(formType + 'Form');
+        if (activeForm) {
+            activeForm.classList.add('active');
+        }
+    }
+
+    function closeForm() {
+        var formContainers = document.querySelectorAll('.form-container');
+        formContainers.forEach(function(container) {
+            container.classList.remove('active');
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        var closeFormButtons = document.querySelectorAll(".closeFormButton");
+
+        closeFormButtons.forEach(function(button) {
+            button.addEventListener("click", function(event) {
+                event.preventDefault();
+                closeForm();
+            });
+        });
+    });
+</script>
+{% endblock %}

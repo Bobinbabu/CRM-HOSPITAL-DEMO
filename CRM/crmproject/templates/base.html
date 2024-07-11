@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="../static/img/doct.png">
+  <title>Doctosmart - Customer Relationship Management </title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  {% block extra_css %}{% endblock %}
+  <!-- Boxicons CDN Link -->
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+  .navbar {
+    background-color: #344675;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.navbar-content {
+    display: flex;
+    align-items: center;
+}
+
+
+</style>
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <img src="{% static '/asset/ds-removebg-preview.png' %}" alt="" style="height: 45px; width:45px;">
+      <div class="logo_name">DOCTOSMART</div>
+      <i class='bx bx-menu' id="btn"></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+        <a href="dash">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Dashboard</span>
+        </a>
+        <span class="tooltip">Dashboard</span>
+      </li>
+      <li>
+        <a href="tic">
+          <i class="fa-solid fa-book"></i>
+          <span class="links_name">Tickets</span>
+        </a>
+        <span class="tooltip">Tickets</span>
+      </li>
+      <li>
+        <a href="sac">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <span class="links_name">Search And Call</span>
+        </a>
+        <span class="tooltip">Search And Call</span>
+      </li>
+      <li>
+        <a href="cust">
+          <i class='bx bx-user' ></i>
+          <span class="links_name">Customer</span>
+        </a>
+        <span class="tooltip">Customer</span>
+      </li>
+      <li>
+        <a href="lead">
+          <i class="fa-solid fa-headphones"></i>
+          <span class="links_name">Leads</span>
+        </a>
+        <span class="tooltip">Leads</span>
+      </li>
+      <li>
+        <a href="flup">
+          <i class="fa-regular fa-face-smile"></i>
+          <span class="links_name">Follow up</span>
+        </a>
+        <span class="tooltip">Follow up</span>
+      </li>
+      <li>
+        <a href="setup">
+          <i class='bx bx-cog' ></i>
+          <span class="links_name">Set Up</span>
+        </a>
+        <span class="tooltip">Set Up</span>
+      </li>
+      {% for i in data %}
+      <li class="profile">
+          <div class="profile-details">
+              <!-- Make sure the image path is correct and the static files are properly configured -->
+              <img src="{% static 'asset/photo_2024-06-14_11-39-14.jpg' %}" alt="profileImg">
+              <div class="name_job">
+                  <div class="name">{{ i.Username }}</div> 
+                  <div class="job">Web Developer</div>
+              </div>
+          </div>
+          <!-- Ensure the logout URL is correct -->
+          <a href="{% url 'logout' %}">
+              <i class='bx bx-log-out' id="log_out"></i>
+          </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <nav class="navbar">
+    <div class="navbar-content">
+        <div class="profile-dropdown">
+          <a href="">
+            <i class="fa-solid fa-user" style="margin-left: -30px; color: black;"></i>
+          </a>
+        </div>
+        <div class="notification-icon">
+        <a href="">
+          <i class="fa-solid fa-bell" style="color: black;"></i>
+        </a>
+        </div>
+    </div>
+  </nav>
+
+</div>
+  <section class="home-section">
+    {% block content %}
+        <!-- Content from other templates will be inserted here -->
+    {% endblock %}
+  
+  </section>
+
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    let sidebar = document.querySelector(".sidebar");
+    let closeBtn = document.querySelector("#btn");
+
+    closeBtn.addEventListener("click", ()=>{
+      sidebar.classList.toggle("open");
+      menuBtnChange();//calling the function(optional)
+    });
+
+    // following are the code to change sidebar button(optional)
+   
+   
+  </script>
+</body>
+</html>

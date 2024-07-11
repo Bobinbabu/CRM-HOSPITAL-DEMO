@@ -1,0 +1,77 @@
+.container {
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  
+
+  h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+
+  textarea {
+    height: 60px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+
+  .button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 10px; /* Added margin to separate button from select */
+  }
+
+  .button:hover {
+    background-color: #0056b3;
+  }
+
+  input[type="radio"] {
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+
+  .btn {
+    background-image: linear-gradient(-45deg, #344675 0%, #417c99 100%);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+
+  .btn:hover {
+    background-image: linear-gradient(-45deg, #417c99 0%, #344675 100%);
+  }
+
+  @media (max-width: 600px) {
+    .container {
+      padding: 10px;
+    }
+
+  }

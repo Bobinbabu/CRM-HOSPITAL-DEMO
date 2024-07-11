@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% block title %}ticket without content{% endblock %}
+{% block content %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/follow.css' %}">
+{% endblock %}
+
+<div class="text">Follow up</div>
+
+    <div class="form">
+        <h3 class="filtter">FILTTER BY :</h3>
+        <form class="form" action="" method="">
+            <label>Staff Name :</label>
+            <select>
+                <option value="Staff Name">Staff Name</option>
+                <option value="Vivek T K">Vivek T K</option>
+                <option value="Vipin  Das">Vipin  Das</option>
+                <option value="Vipin  K K">Vipin  K K</option>
+                <option value="Sreelakshmi M">Sreelakshmi M</option>
+                <option value="Shuhaib ds">Shuhaib ds</option>
+                <option value="Shireen Saleem">Shireen Saleem</option>
+                <option value="Salman">Salman</option>
+                <option value="Rukksana">Rukksana</option>
+                <option value="Riya DS">Riya DS</option>
+                <option value="Rinshida">Rinshida</option>
+                <option value="Rimna DS">Rimna DS</option>
+                <option value="Nithara K">Nithara K</option>
+                <option value="Nishma M">Nishma M</option>
+                <option value="Neenu T C">Neenu T C</option>
+                <option value="Muhammed">Muhammed</option>
+                <option value="Lincy Philip">Lincy Philip</option>
+                <option value="Leah  Fathima">Leah  Fathima</option>
+                <option value="Lakshmi Doctosmart">Lakshmi Doctosmart</option>
+                <option value="Justin Doctosmart">Justin Doctosmart</option>
+                <option value="Jasmine Alisha">Jasmine Alisha</option>
+                <option value="Hashma .">Hashma .</option>
+                <option value="Gold">Gold</option>
+                <option value="Gayathri">Gayathri</option>
+                <option value="Fayis  E K">Fayis  E K</option>
+                <option value="Doctosmart CRM">Doctosmart CRM</option>
+                <option value="Deepika Heeralal">Deepika Heeralal</option>
+                <option value="Bijeesh Raghavan">Bijeesh Raghavan</option>
+                <option value="Asif  Ali">Asif  Ali</option>
+                <option value="Ashwathy">Ashwathy</option>
+                <option value="Arshed">Arshed</option>
+                <option value="Archana Doctosmart">Archana Doctosmart</option>
+                <option value="Anusmaya p">Anusmaya p</option>
+                <option value="Anusha K">Anusha K</option>
+                <option value="AMRUTHA DS">AMRUTHA DS</option>
+                <option value="Alia docto">Alia docto</option>
+                <option value="Afra N K">Afra N K</option>
+                <option value="Adih  Rahman">Adih  Rahman</option>
+                <option value="Adarsh M M">Adarsh M M</option>
+                <option value="Abhi">Abhi</option>
+            </select>
+            <label >Doctor Name :</label>
+            <input  type="text" placeholder="Search Doctor" name="doctor_name" style="width: 25%;" required>
+            <label>mobile Number</label>
+            <input type="text" placeholder="Mobile number" name="mobile" style="width: 25%;" required>
+            <label>From Date :</label>
+            <input type="date" name="from_date"required>
+            <label >To Date :</label>
+            <input  type="date" name="to_date" required>
+            <button type="submit" class="btns" >Search</button>
+            <button type="submit" class="btns" >Reset</button>
+        </form>
+    </div>
+    <hr>
+    <div class="bttn">
+        <button type="submit" class="btn" >FULL DATA</button>
+        <button type="submit" class="btn" >PAST</button>
+        <button type="submit" class="btn" >FUTURE</button>
+        <button type="submit" class="btn" >TODAY</button>
+        <button type="submit" class="btn" >SUNDAY</button>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+             <th>SI NO</th>
+             <th>Date</th>
+             <th>Doctor Name</th>
+             <th>Staff Name</th>
+             <th>Mobile Number</th>
+             <th>City</th>
+             <th>Reminder</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-label="SI NO">1</td>
+                <td data-label="Date">shamil k</td>
+                <td data-label="Doctor Name">PFS</td>
+                <td data-label="Staff Name">online</td>
+                <td data-label="Mobile Number">9876785423</td>
+                <td data-label="City">PD</td>
+                <td data-label="reminder">bob</td>
+              </tr>
+        </tbody>
+      </table>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    let sidebar = document.querySelector(".sidebar");
+    let closeBtn = document.querySelector("#btn");
+
+    closeBtn.addEventListener("click", ()=>{
+      sidebar.classList.toggle("open");
+      menuBtnChange();//calling the function(optional)
+    });
+
+
+    
+  </script>
+
+{% endblock %}

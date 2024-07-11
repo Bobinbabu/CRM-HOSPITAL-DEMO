@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/setup.css' %}">
+{% endblock %}
+
+<div style="margin-left: 40px;">
+    <a href="newstaff"><button type="button">New Staff Member</button></a>
+</div>
+   
+<div class="container">
+    <div class="form">
+        <form class="form" action="" method="">
+            <select name="" id="" style="width: auto; height: 45px;">
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="All">All</option>
+            </select>
+            <button type="submit" class="btns">Export</button>
+            <button type="submit" class="btns"><i class="fa-solid fa-arrows-rotate"></i></button>
+        </form>
+    </div>
+</div>
+
+<table class="table" style="margin-left: 60px;">
+    <thead>
+        <tr>
+            <th>Sl No</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Last Login</th>
+            <th>Active</th>
+            <th><i class="fa-regular fa-pen-to-square"></i></th>
+            <th><i class="fa-solid fa-trash-can" style="color: red;"></i></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in st %}
+        <tr>
+            <td data-label="sl no">{{forloop.counter}}</td>
+            <td data-label="Full Name">{{i.Firstname}}&nbsp;{{i.Lastname}}</td>
+            <td data-label="Email">{{i.Email}}</td>
+            <td data-label="Role">{{i.Departments}}</td>
+            <td data-label="Last Login">Today</td>
+            <td data-label="Active">on</td>
+            <td data-label="Edit"><a href="{% url 'editstaff' i.id %}"><i class="fa-regular fa-pen-to-square" style="color: blue;"></i></a></td>
+            <td data-label="Delete"><a href="{% url 'delestaff' id=i.id %}"><i class="fa-solid fa-trash-can" style="color: red;"></i></a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

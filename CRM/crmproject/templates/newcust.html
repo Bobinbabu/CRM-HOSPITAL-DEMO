@@ -1,0 +1,395 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/newcus.css' %}">
+{% endblock %}
+
+<div class="text">New Customer</div>
+<div class="btns">
+    <div class="text1">Customer Details</div>
+    <a href="customf"><button type="button" class="btn">Custom Feild</button></a>
+    <a href="billship"><button type="button" class="btn">Billing & Shipping</button></a>
+</div>
+
+<form action="newcustomer" method="POST">
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="form-group">
+            <label for="clinic">Clinic</label>
+            <input type="text" id="clinic" name="Clinic2" placeholder="Enter Clinic name">
+            
+        </div>
+        <div class="form-group">
+            <label for="VAT-Number">VAT Number</label>
+            <input type="text" id="VAT-Number" name="VATnumber2" placeholder="Enter VAT-Number">
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="text" id="phone" name="Phone2" placeholder="Enter phone number">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group">
+            <label for="website">Website</label>
+            <input type="text" id="website" name="Website2" placeholder="Enter Website">
+        </div>
+        <div class="form-group">
+            <label for="group">Group</label>
+            <select id="group" name="Group2">
+                <option value="select a Group">select a Group</option>
+                <option value="Cloud Doctosmart">Cloud Doctosmart</option>
+                <option value="Dental Doctosmart">Dental Doctosmart</option>
+                <option value="Desktop Doctosmart">Desktop Doctosmart</option>
+                <option value="Ortho Doctosmart">Ortho Doctosmart</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="currency">Currency</label>
+            <select id="currency" name="Currency2">
+                <option value="Nothing Selected">Nothing Selected</option>
+                <option value="Afghan Afghani">Afghan Afghani</option>
+                <option value="Euro">Euro</option>
+                <option value="Albanian Lek">Albanian Lek</option>
+                <option value="Algerian Dinar">Algerian Dinar</option>
+                <option value="United States Dollar">United States Dollar</option>
+                <option value="Angolan Kwanza">Angolan Kwanza</option>
+                <option value="East Caribbean Dollar">East Caribbean Dollar</option>
+                <option value="Argentine Peso">Argentine Peso</option>
+                <option value="Armenian Dram">Armenian Dram</option>
+                <option value="Aruban Florin">Aruban Florin</option>
+                <option value="Australian Dollar">Australian Dollar</option>
+                <option value="Azerbaijani Manat">Azerbaijani Manat</option>
+                <option value="Bahamian Dollar">Bahamian Dollar</option>
+                <option value="Bahraini Dinar">Bahraini Dinar</option>
+                <option value="Bangladeshi Taka">Bangladeshi Taka</option>
+                <option value="Barbadian Dollar">Barbadian Dollar</option>
+                <option value="Belarusian Ruble">Belarusian Ruble</option>
+                <option value="Belize Dollar">Belize Dollar</option>
+                <option value="West African CFA Franc">West African CFA Franc</option>
+                <option value="Bermudian Dollar">Bermudian Dollar</option>
+                <option value="Bhutanese Ngultrum">Bhutanese Ngultrum</option>
+                <option value="Bolivian Boliviano">Bolivian Boliviano</option>
+                <option value="Bosnia and Herzegovina Convertible Mark">Bosnia and Herzegovina Convertible Mark</option>
+                <option value="Botswana Pula">Botswana Pula</option>
+                <option value="Brazilian Real">Brazilian Real</option>
+                <option value="British Pound">British Pound</option>
+                <option value="Brunei Dollar">Brunei Dollar</option>
+                <option value="Bulgarian Lev">Bulgarian Lev</option>
+                <option value="Burundian Franc">Burundian Franc</option>
+                <option value="Cambodian Riel">Cambodian Riel</option>
+                <option value="Central African CFA Franc">Central African CFA Franc</option>
+                <option value="Canadian Dollar">Canadian Dollar</option>
+                <option value="Cape Verdean Escudo">Cape Verdean Escudo</option>
+                <option value="Cayman Islands Dollar">Cayman Islands Dollar</option>
+                <option value="Chilean Peso">Chilean Peso</option>
+                <option value="Chinese Yuan">Chinese Yuan</option>
+                <option value="Colombian Peso">Colombian Peso</option>
+                <option value="Comorian Franc">Comorian Franc</option>
+                <option value="Congolese Franc">Congolese Franc</option>
+                <option value="Costa Rican Colón">Costa Rican Colón</option>
+                <option value="Croatian Kuna">Croatian Kuna</option>
+                <option value="Cuban Peso">Cuban Peso</option>
+                <option value="Czech Koruna">Czech Koruna</option>
+                <option value="Danish Krone">Danish Krone</option>
+                <option value="Djiboutian Franc">Djiboutian Franc</option>
+                <option value="Dominican Peso">Dominican Peso</option>
+                <option value="East Caribbean Dollar">East Caribbean Dollar</option>
+                <option value="Egyptian Pound">Egyptian Pound</option>
+                <option value="Salvadoran Colón">Salvadoran Colón</option>
+                <option value="Eritrean Nakfa">Eritrean Nakfa</option>
+                <option value="Ethiopian Birr">Ethiopian Birr</option>
+                <option value="Falkland Islands Pound">Falkland Islands Pound</option>
+                <option value="Fijian Dollar">Fijian Dollar</option>
+                <option value="Gambian Dalasi">Gambian Dalasi</option>
+                <option value="Georgian Lari">Georgian Lari</option>
+                <option value="Ghanaian Cedi">Ghanaian Cedi</option>
+                <option value="Gibraltar Pound">Gibraltar Pound</option>
+                <option value="Danish Krone">Danish Krone</option>
+                <option value="Guatemalan Quetzal">Guatemalan Quetzal</option>
+                <option value="Guinean Franc">Guinean Franc</option>
+                <option value="Guyanese Dollar">Guyanese Dollar</option>
+                <option value="Haitian Gourde">Haitian Gourde</option>
+                <option value="Honduran Lempira">Honduran Lempira</option>
+                <option value="Hong Kong Dollar">Hong Kong Dollar</option>
+                <option value="Hungarian Forint">Hungarian Forint</option>
+                <option value="Icelandic Króna">Icelandic Króna</option>
+                <option value="Indian Rupee" selected>Indian Rupee</option>
+                <option value="Indonesian Rupiah">Indonesian Rupiah</option>
+                <option value="Iranian Rial">Iranian Rial</option>
+                <option value="Iraqi Dinar">Iraqi Dinar</option>
+                <option value="Israeli New Shekel">Israeli New Shekel</option>
+                <option value="Jamaican Dollar">Jamaican Dollar</option>
+                <option value="Japanese Yen">Japanese Yen</option>
+                <option value="Jordanian Dinar">Jordanian Dinar</option>
+                <option value="Kazakhstani Tenge">Kazakhstani Tenge</option>
+                <option value="Kenyan Shilling">Kenyan Shilling</option>
+                <option value="North Korean Won">North Korean Won</option>
+                <option value="South Korean Won">South Korean Won</option>
+                <option value="Kuwaiti Dinar">Kuwaiti Dinar</option>
+                <option value="Kyrgyzstani Som">Kyrgyzstani Som</option>
+                <option value="Lao Kip">Lao Kip</option>
+                <option value="Lebanese Pound">Lebanese Pound</option>
+                <option value="Lesotho Loti">Lesotho Loti</option>
+                <option value="Liberian Dollar">Liberian Dollar</option>
+                <option value="Libyan Dinar">Libyan Dinar</option>
+                <option value="Swiss Franc">Swiss Franc</option>
+                <option value="Macanese Pataca">Macanese Pataca</option>
+                <option value="Macedonian Denar">Macedonian Denar</option>
+                <option value="Malagasy Ariary">Malagasy Ariary</option>
+                <option value="Malawian Kwacha">Malawian Kwacha</option>
+                <option value="Malaysian Ringgit">Malaysian Ringgit</option>
+                <option value="Maldivian Rufiyaa">Maldivian Rufiyaa</option>
+                <option value="Mauritanian Ouguiya">Mauritanian Ouguiya</option>
+                <option value="Mauritian Rupee">Mauritian Rupee</option>
+                <option value="Mexican Peso">Mexican Peso</option>
+                <option value="Moldovan Leu">Moldovan Leu</option>
+                <option value="Mongolian Tögrög">Mongolian Tögrög</option>
+                <option value="Moroccan Dirham">Moroccan Dirham</option>
+                <option value="Mozambican Metical">Mozambican Metical</option>
+                <option value="Burmese Kyat">Burmese Kyat</option>
+                <option value="Namibian Dollar">Namibian Dollar</option>
+                <option value="Nepalese Rupee">Nepalese Rupee</option>
+                <option value="Netherlands Antillean Guilder">Netherlands Antillean Guilder</option>
+                <option value="New Taiwan Dollar">New Taiwan Dollar</option>
+                <option value="New Zealand Dollar">New Zealand Dollar</option>
+                <option value="Nicaraguan Córdoba">Nicaraguan Córdoba</option>
+                <option value="Nigerian Naira">Nigerian Naira</option>
+                <option value="Norwegian Krone">Norwegian Krone</option>
+                <option value="Omani Rial">Omani Rial</option>
+                <option value="Pakistani Rupee">Pakistani Rupee</option>
+                <option value="Panamanian Balboa">Panamanian Balboa</option>
+                <option value="Papua New Guinean Kina">Papua New Guinean Kina</option>
+                <option value="Paraguayan Guaraní">Paraguayan Guaraní</option>
+                <option value="Peruvian Sol">Peruvian Sol</option>
+                <option value="Philippine Peso">Philippine Peso</option>
+                <option value="Polish Złoty">Polish Złoty</option>
+                <option value="Qatari Riyal">Qatari Riyal</option>
+                <option value="Romanian Leu">Romanian Leu</option>
+                <option value="Russian Ruble">Russian Ruble</option>
+                <option value="Rwandan Franc">Rwandan Franc</option>
+                <option value="Saint Helena Pound">Saint Helena Pound</option>
+                <option value="Samoan Tala">Samoan Tala</option>
+                <option value="Saudi Riyal">Saudi Riyal</option>
+                <option value="Serbian Dinar">Serbian Dinar</option>
+                <option value="Seychellois Rupee">Seychellois Rupee</option>
+                <option value="Sierra Leonean Leone">Sierra Leonean Leone</option>
+                <option value="Singapore Dollar">Singapore Dollar</option>
+                <option value="Solomon Islands Dollar">Solomon Islands Dollar</option>
+                <option value="Somali Shilling">Somali Shilling</option>
+                <option value="South African Rand">South African Rand</option>
+                <option value="South Sudanese Pound">South Sudanese Pound</option>
+                <option value="Sri Lankan Rupee">Sri Lankan Rupee</option>
+                <option value="Sudanese Pound">Sudanese Pound</option>
+                <option value="Surinamese Dollar">Surinamese Dollar</option>
+                <option value="Swazi Lilangeni">Swazi Lilangeni</option>
+                <option value="Swedish Krona">Swedish Krona</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group">
+            <label for="defult-language">Defult Language</label>
+            <select id="defult-language" name="Language2">
+                <option value="defaultlanguage">System Default</option>
+                <option value="swedish" >Swedish</option>
+                <option value="japanese" >Japanese</option>
+                <option value="chinese" >Chinese</option>
+                <option value="romanian" >Romanian</option>
+                <option value="catalan" >Catalan</option>
+                <option value="italian" >Italian</option>
+                <option value="english" >English</option>
+                <option value="indonesia" >Indonesia</option>
+                <option value="russian" >Russian</option>
+                <option value="dutch" >Dutch</option>
+                <option value="portuguese" >Portuguese</option>
+                <option value="spanish" >Spanish</option>
+                <option value="czech" >Czech</option>
+                <option value="slovak" >Slovak</option>
+                <option value="vietnamese" >Vietnamese</option>
+                <option value="persian" >Persian</option>
+                <option value="german" >German</option>
+                <option value="polish" >Polish</option>
+                <option value="french" >French</option>
+                <option value="turkish" >Turkish</option>
+                <option value="portuguese_br" >Portuguese_br</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" id="address" name="Address2" placeholder="Enter Address">
+        </div>
+        <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" id="address" name="City2" placeholder="Enter city">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group">
+            <label for="defult-State">State</label>
+            <input type="text" id="State" name="State2" placeholder="Enter State">
+        </div>
+        <div class="form-group">
+            <label for="address">Zip Code</label>
+            <input type="text" id="address" name="Zipcode2" placeholder="Enter Zipcode">
+        </div>
+        <div class="form-group">
+            <label for="city">Country</label>
+            <select id="city" name="Country2">
+                <option value="country">Nothing Selected</option>
+                    <option value="afghanistan">Afghanistan</option>
+                    <option value="albania">Albania</option>
+                    <option value="algeria">Algeria</option>
+                    <option value="andorra">Andorra</option>
+                    <option value="angola">Angola</option>
+                    <option value="antigua_and_barbuda">Antigua and Barbuda</option>
+                    <option value="argentina">Argentina</option>
+                    <option value="armenia">Armenia</option>
+                    <option value="australia">Australia</option>
+                    <option value="austria">Austria</option>
+                    <option value="azerbaijan">Azerbaijan</option>
+                    <option value="bahamas">Bahamas</option>
+                    <option value="bahrain">Bahrain</option>
+                    <option value="bangladesh">Bangladesh</option>
+                    <option value="barbados">Barbados</option>
+                    <option value="belarus">Belarus</option>
+                    <option value="belgium">Belgium</option>
+                    <option value="belize">Belize</option>
+                    <option value="benin">Benin</option>
+                    <option value="bhutan">Bhutan</option>
+                    <option value="bolivia">Bolivia</option>
+                    <option value="bosnia_and_herzegovina">Bosnia and Herzegovina</option>
+                    <option value="botswana">Botswana</option>
+                    <option value="brazil">Brazil</option>
+                    <option value="brunei">Brunei</option>
+                    <option value="bulgaria">Bulgaria</option>
+                    <option value="burkina_faso">Burkina Faso</option>
+                    <option value="burundi">Burundi</option>
+                    <option value="cabo_verde">Cabo Verde</option>
+                    <option value="cambodia">Cambodia</option>
+                    <option value="cameroon">Cameroon</option>
+                    <option value="canada">Canada</option>
+                    <option value="central_african_republic">Central African Republic</option>
+                    <option value="chad">Chad</option>
+                    <option value="chile">Chile</option>
+                    <option value="china">China</option>
+                    <option value="colombia">Colombia</option>
+                    <option value="comoros">Comoros</option>
+                    <option value="congo_democratic_republic">Congo, Democratic Republic of the</option>
+                    <option value="congo_republic">Congo, Republic of the</option>
+                    <option value="costa_rica">Costa Rica</option>
+                    <option value="croatia">Croatia</option>
+                    <option value="cuba">Cuba</option>
+                    <option value="cyprus">Cyprus</option>
+                    <option value="czech_republic">Czech Republic (Czechia)</option>
+                    <option value="denmark">Denmark</option>
+                    <option value="djibouti">Djibouti</option>
+                    <option value="dominica">Dominica</option>
+                    <option value="dominican_republic">Dominican Republic</option>
+                    <option value="east_timor">East Timor (Timor-Leste)</option>
+                    <option value="ecuador">Ecuador</option>
+                    <option value="egypt">Egypt</option>
+                    <option value="el_salvador">El Salvador</option>
+                    <option value="equatorial_guinea">Equatorial Guinea</option>
+                    <option value="eritrea">Eritrea</option>
+                    <option value="estonia">Estonia</option>
+                    <option value="eswatini">Eswatini</option>
+                    <option value="ethiopia">Ethiopia</option>
+                    <option value="fiji">Fiji</option>
+                    <option value="finland">Finland</option>
+                    <option value="france">France</option>
+                    <option value="gabon">Gabon</option>
+                    <option value="gambia">Gambia</option>
+                    <option value="georgia">Georgia</option>
+                    <option value="germany">Germany</option>
+                    <option value="ghana">Ghana</option>
+                    <option value="greece">Greece</option>
+                    <option value="grenada">Grenada</option>
+                    <option value="guatemala">Guatemala</option>
+                    <option value="guinea">Guinea</option>
+                    <option value="guinea_bissau">Guinea-Bissau</option>
+                    <option value="guyana">Guyana</option>
+                    <option value="haiti">Haiti</option>
+                    <option value="honduras">Honduras</option>
+                    <option value="hungary">Hungary</option>
+                    <option value="iceland">Iceland</option>
+                    <option value="india" selected>India</option>
+                    <option value="indonesia">Indonesia</option>
+                    <option value="iran">Iran</option>
+                    <option value="iraq">Iraq</option>
+                    <option value="ireland">Ireland</option>
+                    <option value="israel">Israel</option>
+                    <option value="italy">Italy</option>
+                    <option value="ivory_coast">Ivory Coast</option>
+                    <option value="jamaica">Jamaica</option>
+                    <option value="japan">Japan</option>
+                    <option value="jordan">Jordan</option>
+                    <option value="kazakhstan">Kazakhstan</option>
+                    <option value="kenya">Kenya</option>
+                    <option value="kiribati">Kiribati</option>
+                    <option value="korea_north">Korea, North (North Korea)</option>
+                    <option value="korea_south">Korea, South (South Korea)</option>
+                    <option value="kosovo">Kosovo</option>
+                    <option value="kuwait">Kuwait</option>
+                    <option value="kyrgyzstan">Kyrgyzstan</option>
+                    <option value="laos">Laos</option>
+                    <option value="latvia">Latvia</option>
+                    <option value="lebanon">Lebanon</option>
+                    <option value="lesotho">Lesotho</option>
+                    <option value="liberia">Liberia</option>
+                    <option value="libya">Libya</option>
+                    <option value="liechtenstein">Liechtenstein</option>
+                    <option value="lithuania">Lithuania</option>
+                    <option value="luxembourg">Luxembourg</option>
+                    <option value="madagascar">Madagascar</option>
+                    <option value="malawi">Malawi</option>
+                    <option value="malaysia">Malaysia</option>
+                    <option value="maldives">Maldives</option>
+                    <option value="mali">Mali</option>
+                    <option value="malta">Malta</option>
+                    <option value="marshall_islands">Marshall Islands</option>
+                    <option value="mauritania">Mauritania</option>
+                    <option value="mauritius">Mauritius</option>
+                    <option value="mexico">Mexico</option>
+                    <option value="micronesia">Micronesia</option>
+                    <option value="moldova">Moldova</option>
+                    <option value="monaco">Monaco</option>
+                    <option value="mongolia">Mongolia</option>
+                    <option value="montenegro">Montenegro</option>
+                    <option value="morocco">Morocco</option>
+                    <option value="mozambique">Mozambique</option>
+                    <option value="myanmar">Myanmar (Burma)</option>
+                    <option value="namibia">Namibia</option>
+                    <option value="nauru">Nauru</option>
+                    <option value="nepal">Nepal</option>
+                    <option value="netherlands">Netherlands</option>
+                    <option value="new_zealand">New Zealand</option>
+                    <option value="nicaragua">Nicaragua</option>
+                    <option value="niger">Niger</option>
+                    <option value="nigeria">Nigeria</option>
+                    <option value="north_macedonia">North Macedonia</option>
+                    <option value="norway">Norway</option>
+                    <option value="oman">Oman</option>
+                    <option value="pakistan">Pakistan</option>
+                    <option value="palau">Palau</option>
+                    <option value="palestine">Palestine</option>
+                    <option value="panama">Panama</option>
+                    <option value="papua_new_guinea">Papua New Guinea</option>
+                    <option value="paraguay">Paraguay</option>
+                    <option value="peru">Peru</option>
+                    <option value="philippines">Philippines</option>
+                    <option value="poland">Poland</option>
+                    <option value="portugal">Portugal</option>
+                    <option value="qatar">Qatar</option>
+                    <option value="romania">Romania</option> 
+            </select>
+        </div>
+    </div>
+    <div class="form-actions">
+        <button type="button" class="btn">Save</button>
+        <button type="reset" class="btn">Reset</button>
+        <button type="submit" class="btn">Save And Create Contact</button>
+    </div>
+</form>
+{% endblock %}
